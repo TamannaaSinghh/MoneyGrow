@@ -6,16 +6,25 @@ export function TeamCard({ member, expanded = false }: { member: Member; expande
       id={member.slug}
       className="bg-paper border border-ink/10 rounded-md overflow-hidden"
     >
-      <div className="grid grid-cols-3 gap-0">
-        <div className="col-span-1 aspect-[3/4] relative bg-gradient-to-br from-teal-700 to-teal-900 grain text-cream grid place-items-center overflow-hidden">
-          <span className="font-display text-7xl lg:text-8xl text-cream/90 tracking-tighter3">
-            {member.initials}
-          </span>
-          <div className="absolute bottom-3 left-4 text-xs smallcaps text-gold-300/90 font-mono">
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-0">
+        <div className="sm:col-span-1 aspect-square relative bg-gradient-to-br from-teal-700 to-teal-900 grain text-cream grid place-items-center overflow-hidden">
+          {member.photo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          ) : (
+            <span className="font-display text-7xl lg:text-8xl text-cream/90 tracking-tighter3">
+              {member.initials}
+            </span>
+          )}
+          <div className="absolute bottom-3 left-4 text-xs smallcaps text-gold-300/90 font-mono z-10">
             MoneyGrow
           </div>
         </div>
-        <div className="col-span-2 p-7 lg:p-9">
+        <div className="sm:col-span-4 p-7 lg:p-9">
           <p className="smallcaps text-base text-teal-600 font-medium">{member.role}</p>
           <h3 className="font-display text-2xl lg:text-3xl mt-2 tracking-tightish">
             {member.name}

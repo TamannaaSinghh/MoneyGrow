@@ -3,6 +3,7 @@ export type Member = {
   name: string;
   role: string;
   initials: string;
+  photo?: string;
   linkedin: string;
   bio: string[];
   highlights: string[];
@@ -14,6 +15,7 @@ export const team: Member[] = [
     name: "Manish Gupta",
     role: "Managing Director",
     initials: "MG",
+    photo: "/Manish-1.jpg",
     linkedin: "https://www.linkedin.com/in/manish-gupta-85196b/",
     bio: [
       "Manish has over 23 years of experience in Indian equity markets.",
@@ -31,6 +33,7 @@ export const team: Member[] = [
     name: "Viraj Mahadevia",
     role: "Portfolio Manager & Partner",
     initials: "VM",
+    photo: "/Viraj.png",
     linkedin: "https://www.linkedin.com/in/viraj-mahadevia-5a49176b",
     bio: [
       "Viraj has over 20 years of experience in finance, with 10 years in Private Equity in India as part of Actis (AUM of over USD 7.5 billion across various funds), one of the largest emerging market PE funds.",
@@ -48,6 +51,7 @@ export const team: Member[] = [
     name: "Sandeep Mathivanan",
     role: "Equity Research Analyst",
     initials: "SM",
+    photo: "/Sandeep.png",
     linkedin: "https://www.linkedin.com/",
     bio: [
       "Sandeep is an engineer with a Bachelor's degree in Electronics and Telecommunication Engineering and a Master's in Management Studies specialising in Finance.",

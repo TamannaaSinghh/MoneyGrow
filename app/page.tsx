@@ -256,8 +256,17 @@ export default function Home() {
               href={`/team#${m.slug}`}
               className="group bg-paper border border-ink/10 rounded-md p-7 hover:border-teal-600 hover:shadow-soft transition"
             >
-              <div className="aspect-[4/3] mb-6 rounded bg-gradient-to-br from-teal-700 to-teal-900 grain grid place-items-center text-cream font-display text-6xl tracking-tighter3">
-                {m.initials}
+              <div className="aspect-square mb-6 rounded bg-gradient-to-br from-teal-700 to-teal-900 grain grid place-items-center text-cream font-display text-6xl tracking-tighter3 overflow-hidden">
+                {m.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={m.photo}
+                    alt={m.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  m.initials
+                )}
               </div>
               <p className="smallcaps text-base text-teal-600 font-medium">{m.role}</p>
               <h3 className="font-display text-2xl mt-1 tracking-tightish">
