@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
-import { PerformanceTable } from "@/components/PerformanceTable";
+import { FeesTerms } from "@/components/FeesTerms";
 import { CTAStrip } from "@/components/CTAStrip";
 import { strategies, getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
@@ -22,12 +21,6 @@ export default function StrategyDetail({ params }: { params: { slug: string } })
   if (!s) notFound();
 
   const isAif = s.category === "AIF";
-  const indicativeRows = [
-    { period: "1 Year", strategy: "—", benchmark: "—", alpha: "—" },
-    { period: "3 Years", strategy: "—", benchmark: "—", alpha: "—" },
-    { period: "5 Years", strategy: "—", benchmark: "—", alpha: "—" },
-    { period: "Since Inception", strategy: "—", benchmark: "—", alpha: "—" },
-  ];
 
   return (
     <>
@@ -62,34 +55,9 @@ export default function StrategyDetail({ params }: { params: { slug: string } })
         }
       />
 
-      {/* Performance */}
+      {/* Fees & terms */}
       <Section>
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-5">
-            <Eyebrow>Performance</Eyebrow>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
-              Indicative <span className="italic font-light">returns</span>.
-            </h2>
-            <p className="mt-5 text-base text-ink/75 leading-relaxed">
-              Detailed performance figures are shared on request and are subject to the latest
-              SEBI-mandated disclosures. We are happy to walk you through them on a call.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 mt-8 text-base font-medium text-teal-600 link-underline"
-            >
-              Request the latest factsheet →
-            </Link>
-          </div>
-          <div className="lg:col-span-7">
-            <PerformanceTable
-              asOn={site.aum.asOn}
-              strategyLabel={s.name}
-              benchmarkLabel={s.benchmark}
-              rows={indicativeRows}
-            />
-          </div>
-        </div>
+        <FeesTerms strategy={s} />
       </Section>
 
       {/* Why this strategy */}
@@ -111,7 +79,7 @@ export default function StrategyDetail({ params }: { params: { slug: string } })
       {/* Philosophy / framework */}
       <Section>
         <SectionTitle kicker="Investment philosophy">
-          {s.slug === "flexicap"
+          {s.slug === "large-midcap"
             ? "The 4P framework, in detail."
             : s.slug === "alpha-fund"
             ? "Building Alpha Fund I."

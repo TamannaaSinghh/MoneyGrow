@@ -5,7 +5,7 @@
 :root {
   --bg: #FAF8F2;
   --ink: #0E1116;
-  --teal: #0B4F44;
+  --teal: #1D8F54;
   --gold: #C9A55C;
 }
 
@@ -36,7 +36,7 @@ body {
 
 /* Selection */
 ::selection {
-  background: #0B4F44;
+  background: #1D8F54;
   color: #FAF8F2;
 }
 

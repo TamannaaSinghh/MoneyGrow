@@ -10,20 +10,26 @@ export type Strategy = {
   whyPoints: { title: string; body: string }[];
   philosophy: { title: string; body: string }[];
   emergingThemes?: string[];
+  terms?: {
+    minInvestment: string;
+    lockIn: string;
+    exitLoad: string;
+    feeOptions: { label: string; fixedFee: string; hurdle: string; performanceFee: string }[];
+  };
 };
 
 export const strategies: Strategy[] = [
   {
-    slug: "flexicap",
-    name: "Flexicap",
+    slug: "large-midcap",
+    name: "Large Midcap",
     category: "PMS",
     pitch:
-      "A versatile strategy investing across large, mid-cap and small-cap companies for balanced growth and flexibility.",
+      "Invests in fundamentally strong companies across market caps using the 4P framework for long-term wealth generation.",
     longPitch:
-      "Aim to invest in fundamentally strong companies based on a 4P framework — Promoter, Product, Profitability, Price — across the market caps for long-term wealth generation.",
+      "Aims to invest in fundamentally strong companies based on the 4P framework — Promoter, Product, Profitability, Price — across market caps for long-term wealth generation. It uses a mix of top-down and bottom-up strategy, selecting stocks on fundamentals, valuations and growth, and is largely a buy-and-hold approach targeting growth leaders with long-term EPS growth of around 15 – 20%.",
     marketCap: "Large · Mid · Small",
     horizon: "3 – 5 years",
-    benchmark: "BSE 500 TRI",
+    benchmark: "Nifty 50 TRI",
     whyPoints: [
       {
         title: "Diversification",
@@ -68,18 +74,28 @@ export const strategies: Strategy[] = [
           "We use multiple absolute and relative valuation parameters to assess whether valuation is reasonable. We generally stay away from extremely richly valued stocks where investor frenzy is unusually high.",
       },
     ],
+    terms: {
+      minInvestment: "₹50 lakhs",
+      lockIn: "Nil",
+      exitLoad: "Nil",
+      feeOptions: [
+        { label: "Hybrid Fee", fixedFee: "1.0% p.a.", hurdle: "Above 10%", performanceFee: "15% of profits" },
+        { label: "Performance Fee only", fixedFee: "Nil", hurdle: "Above 0%", performanceFee: "15% of profits" },
+        { label: "Fixed Fee only", fixedFee: "2.5% p.a.", hurdle: "Nil", performanceFee: "Nil" },
+      ],
+    },
   },
   {
     slug: "small-midcap",
-    name: "Small & Midcap",
+    name: "Small Midcap",
     category: "PMS",
     pitch:
       "Focused on high-growth-potential companies in the small and mid-cap segments, offering opportunities for significant long-term returns.",
     longPitch:
       "A bottom-up portfolio of structurally growing small and mid-cap businesses, picking up special situations and emerging sectoral themes early to capture outsized returns.",
-    marketCap: "Mid · Small",
+    marketCap: "Small · Mid",
     horizon: "4 – 6 years",
-    benchmark: "BSE 250 SmallCap TRI",
+    benchmark: "Nifty 50 TRI",
     whyPoints: [
       {
         title: "Scope for PE-style investing",
@@ -125,62 +141,16 @@ export const strategies: Strategy[] = [
       "Infrastructure build-out",
       "NCLT & corporate turnarounds",
     ],
-  },
-  {
-    slug: "blend",
-    name: "Blend",
-    category: "PMS",
-    pitch:
-      "Best ideas of Flexicap and Small & Midcap in one investment approach.",
-    longPitch:
-      "Dynamic asset allocation across large, mid and small caps depending on valuation and expected return. Ideal for investors seeking high growth potential combined with the flexibility and diversification for balanced, long-term wealth creation.",
-    marketCap: "Dynamic across all caps",
-    horizon: "4 – 6 years",
-    benchmark: "BSE 500 TRI",
-    whyPoints: [
-      {
-        title: "Best of both worlds",
-        body:
-          "Combines Flexicap's stability and Small & Midcap's growth potential into a single portfolio.",
-      },
-      {
-        title: "Dynamic allocation",
-        body:
-          "Shifts weights between large, mid and small caps depending on valuations and expected return.",
-      },
-      {
-        title: "Cushioned volatility",
-        body:
-          "Captures the upside of Small & Midcap while cushioning the overall volatility of the portfolio.",
-      },
-      {
-        title: "Wealth-creation horizon",
-        body:
-          "Designed for investors seeking compounded long-term returns with prudent diversification.",
-      },
-    ],
-    philosophy: [
-      {
-        title: "Flexicap discipline",
-        body:
-          "Anchored by the same 4P framework — Promoter, Product, Profitability, Price.",
-      },
-      {
-        title: "Small & Midcap conviction",
-        body:
-          "Adds high-conviction smaller positions where industry potential, business quality, governance and valuations align.",
-      },
-      {
-        title: "Dynamic mix",
-        body:
-          "Allocation between segments is reviewed regularly based on valuations, earnings momentum and macro signals.",
-      },
-      {
-        title: "Risk-managed",
-        body:
-          "Position sizing and sector caps keep the portfolio diversified even when conviction is high.",
-      },
-    ],
+    terms: {
+      minInvestment: "₹50 lakhs",
+      lockIn: "Nil",
+      exitLoad: "3% / 2% / 1% in years 1 / 2 / 3 · Nil after 3 years",
+      feeOptions: [
+        { label: "₹50 L – 1 cr", fixedFee: "2.0% p.a.", hurdle: "Above 10%", performanceFee: "20% of profits" },
+        { label: "₹1 cr – 5 cr", fixedFee: "1.5% p.a.", hurdle: "Above 10%", performanceFee: "20% of profits" },
+        { label: "Above ₹5 cr", fixedFee: "1.0% p.a.", hurdle: "Above 10%", performanceFee: "20% of profits" },
+      ],
+    },
   },
   {
     slug: "alpha-fund",
@@ -192,7 +162,7 @@ export const strategies: Strategy[] = [
       "Long-only strategy investing primarily in listed equities and opportunistically in REITs and commodities companies, aiming to outperform the benchmark while managing risk.",
     marketCap: "Dynamic — Large · Mid · Small + REITs / Commodities",
     horizon: "5+ years",
-    benchmark: "Nifty 500 TRI",
+    benchmark: "Nifty 50 TRI",
     whyPoints: [
       {
         title: "Dynamic Mix",
@@ -237,6 +207,16 @@ export const strategies: Strategy[] = [
           "The investment team has substantial net worth invested alongside investors, ensuring complete alignment of interest.",
       },
     ],
+    terms: {
+      minInvestment: "₹1 crore",
+      lockIn: "Nil",
+      exitLoad: "1% within 1 year · Nil thereafter",
+      feeOptions: [
+        { label: "Hybrid Fee", fixedFee: "1.0% p.a.", hurdle: "Above 10%", performanceFee: "15% of profits" },
+        { label: "Performance Fee only", fixedFee: "Nil", hurdle: "Above 0%", performanceFee: "15% of profits" },
+        { label: "Fixed Fee only", fixedFee: "2.5% p.a.", hurdle: "Nil", performanceFee: "Nil" },
+      ],
+    },
   },
 ];
 

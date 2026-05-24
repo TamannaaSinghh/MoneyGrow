@@ -2,16 +2,12 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { KPIStrip } from "@/components/KPIStrip";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
-import { StrategyCard } from "@/components/StrategyCard";
+import { TeamCard } from "@/components/TeamCard";
 import { ComplianceStrip } from "@/components/ComplianceStrip";
 import { CTAStrip } from "@/components/CTAStrip";
-import { strategies } from "@/lib/strategies";
 import { team } from "@/lib/team";
 import { letters } from "@/lib/newsletters";
 import { site } from "@/lib/site";
-
-const pms = strategies.filter((s) => s.category === "PMS");
-const aif = strategies.find((s) => s.slug === "alpha-fund");
 
 export default function Home() {
   const latest = letters[0];
@@ -21,167 +17,49 @@ export default function Home() {
       <ComplianceStrip />
 
       <KPIStrip
+        dataHref={site.documents.statsSheet}
         items={[
-          { value: site.aum.value, label: "Total AUM", sub: `as on ${site.aum.asOn}` },
           { value: "23+", label: "Years lead-PM experience" },
-          { value: "3 – 5", label: "Year typical horizon" },
           { value: "4P", label: "Investment framework" },
+          { value: "3 – 5", label: "Year typical horizon" },
+          { value: "₹50 L", label: "Minimum investment (PMS)" },
         ]}
       />
 
       {/* About Us */}
       <Section id="about">
-        <div className="grid lg:grid-cols-12 gap-14">
-          <div className="lg:col-span-5">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          <div className="lg:col-span-6">
             <Eyebrow>About MoneyGrow</Eyebrow>
             <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tighter2">
               A professionally run asset manager.{" "}
               <span className="italic font-light text-teal-700">Aligned with you.</span>
             </h2>
-            <p className="mt-6 text-base lg:text-lg text-ink/75 leading-relaxed">
-              We are a SEBI-licensed Portfolio Management Service and Investment
-              Manager to MoneyGrow Alpha Fund I (Cat-III AIF). Our team has substantial
-              net worth invested alongside clients — so we win when you win.
+            <p className="mt-6 max-w-xl text-base lg:text-lg text-ink/75 leading-relaxed">
+              A SEBI-licensed PMS and Investment Manager to MoneyGrow Alpha Fund I
+              (Cat-III AIF). We back fundamentally sound, cash-flow-generating
+              businesses for the long term — with our own net worth invested
+              alongside yours.
             </p>
           </div>
 
-          <div className="lg:col-span-7 space-y-5 text-base lg:text-lg text-ink/80 leading-relaxed">
-            <p>
-              We are a professionally run asset manager with a highly experienced
-              and motivated team.
-            </p>
-            <p>
-              <strong className="text-ink">AIF.</strong> We are the Investment
-              Manager to MoneyGrow AIF Trust for managing MoneyGrow Alpha Fund I
-              (Category III AIF).
-            </p>
-            <p>
-              <strong className="text-ink">PMS.</strong> We are a SEBI-licensed
-              Portfolio Management Service.
-            </p>
-            <p>
-              We manage a total AUM of{" "}
-              <span className="font-display text-teal-700 tabular">{site.aum.value}</span>{" "}
-              as on <span className="tabular">{site.aum.asOn}</span>.
-            </p>
-            <p>
-              Our Investment Team has substantial net worth invested in the various
-              strategies alongside the investors, thus ensuring complete alignment
-              of interest with our clients.
-            </p>
-            <p>
-              We have a long-term approach towards investing. We invest in
-              businesses that are run by high-quality managements and where we
-              expect robust growth over the next 3 – 5 years. Stock prices have
-              been and will continue to fluctuate for various intrinsic and
-              extrinsic reasons, and we generally do not attempt to predict
-              short-term fluctuations.
-            </p>
-            <p>
-              Our core investments are fundamentally sound, cash-flow generating,
-              well-run and growing businesses led by trustworthy and highly
-              competent management teams.
-            </p>
-            <p>
-              We also invest in special situations — i.e. in businesses that may
-              not be performing as per their true potential at the moment but are
-              likely to reach that potential in 1 – 2 years and match up to the
-              standards of the core investments once their true potential is
-              achieved. Often such businesses are undergoing a management change
-              or balance sheet restructuring / sale of a part or the entire
-              business.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Two kinds of conviction */}
-      <Section className="bg-mist border-y border-ink/10">
-        <SectionTitle kicker="Our approach">
-          Two kinds of conviction,{" "}
-          <span className="italic font-light">one portfolio.</span>
-        </SectionTitle>
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
-          <div className="bg-paper border border-ink/10 rounded-md p-9">
-            <p className="font-mono text-sm text-teal-600 tabular">/01</p>
-            <h3 className="font-display text-3xl mt-2 tracking-tightish">
-              Core compounders
-            </h3>
-            <p className="mt-4 text-base text-ink/75 leading-relaxed">
-              Fundamentally sound, cash-flow generating, well-run and growing
-              businesses led by trustworthy and highly competent management teams.
-              We hold them through cycles.
-            </p>
-          </div>
-          <div className="bg-paper border border-ink/10 rounded-md p-9">
-            <p className="font-mono text-sm text-gold-500 tabular">/02</p>
-            <h3 className="font-display text-3xl mt-2 tracking-tightish">
-              Special situations
-            </h3>
-            <p className="mt-4 text-base text-ink/75 leading-relaxed">
-              Businesses currently underperforming their true potential — often
-              undergoing a management change or balance-sheet restructuring — that
-              we expect to re-rate over 1 – 2 years.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Strategies */}
-      <Section className="bg-cream">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8">
-          <SectionTitle kicker="Investment Offerings">
-            Three PMS strategies. <br />
-            <span className="italic font-light text-teal-700">One Cat-III AIF.</span>
-          </SectionTitle>
-          <p className="max-w-md text-base text-ink/70">
-            Pick a strategy that matches your risk tolerance and time horizon.
-            Every approach is anchored in our 4P framework — Promoter, Product,
-            Profitability, Price.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pms.map((s, i) => (
-            <StrategyCard key={s.slug} strategy={s} index={i} />
-          ))}
-        </div>
-
-        {aif && (
-          <Link
-            href={`/strategies/${aif.slug}`}
-            className="mt-6 grid lg:grid-cols-12 gap-8 bg-ink text-cream rounded-md p-6 lg:p-10 group hover:bg-teal-800 transition relative overflow-hidden"
-          >
-            <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/20 blur-3xl pointer-events-none" />
-            <div className="relative lg:col-span-2">
-              <p className="font-mono text-sm text-gold-300/80 tabular">/ AIF</p>
-              <p className="smallcaps text-xs text-cream/50 mt-2">Cat-III</p>
+          <div className="lg:col-span-6">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-paper border border-ink/10 rounded-md p-6 hover:border-teal-600 transition">
+                <p className="font-mono text-sm text-teal-600 tabular">PMS</p>
+                <p className="mt-3 text-base text-ink/75 leading-relaxed">
+                  SEBI-licensed Portfolio Management Service.
+                </p>
+              </div>
+              <div className="bg-paper border border-ink/10 rounded-md p-6 hover:border-gold-400 transition">
+                <p className="font-mono text-sm text-gold-500 tabular">AIF</p>
+                <p className="mt-3 text-base text-ink/75 leading-relaxed">
+                  Investment Manager to MoneyGrow Alpha Fund I (Cat-III).
+                </p>
+              </div>
             </div>
-            <div className="relative lg:col-span-7">
-              <h3 className="font-display text-3xl lg:text-5xl tracking-tighter2 leading-tight">
-                {aif.name}
-              </h3>
-              <p className="mt-4 text-cream/75 max-w-xl text-base lg:text-lg">
-                {aif.pitch}
-              </p>
-            </div>
-            <div className="relative lg:col-span-3 flex flex-col justify-end gap-4">
-              <dl className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <dt className="text-cream/50 mb-1 smallcaps text-xs">Cap mix</dt>
-                  <dd className="text-cream/90 font-medium">Dynamic</dd>
-                </div>
-                <div>
-                  <dt className="text-cream/50 mb-1 smallcaps text-xs">Horizon</dt>
-                  <dd className="text-cream/90 font-medium tabular">{aif.horizon}</dd>
-                </div>
-              </dl>
-              <span className="text-base font-medium text-gold-300 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                Explore Alpha Fund I →
-              </span>
-            </div>
-          </Link>
-        )}
+          </div>
+        </div>
       </Section>
 
       {/* Why MoneyGrow */}
@@ -236,44 +114,19 @@ export default function Home() {
 
       {/* Team */}
       <Section id="team" className="bg-mist">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8">
-          <SectionTitle kicker="Team">
-            Investors with operating{" "}
-            <span className="italic font-light">grit.</span>
-          </SectionTitle>
-          <Link
-            href="/team"
-            className="text-base font-medium text-teal-600 link-underline"
-          >
-            Meet the full team →
-          </Link>
-        </div>
+        <Eyebrow>Team</Eyebrow>
+        <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tighter2 lg:whitespace-nowrap">
+          Investors with operating <span className="italic font-light">grit.</span>
+        </h2>
+        <p className="mt-5 max-w-2xl text-base lg:text-lg text-ink/70 leading-relaxed">
+          You talk to the people who manage your money — not a relationship
+          manager. Two decades of sell-side, buy-side and private-equity
+          experience, with our own net worth invested alongside yours.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {team.map((m) => (
-            <Link
-              key={m.slug}
-              href={`/team#${m.slug}`}
-              className="group bg-paper border border-ink/10 rounded-md p-7 hover:border-teal-600 hover:shadow-soft transition"
-            >
-              <div className="aspect-square mb-6 rounded bg-gradient-to-br from-teal-700 to-teal-900 grain grid place-items-center text-cream font-display text-6xl tracking-tighter3 overflow-hidden">
-                {m.photo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={m.photo}
-                    alt={m.name}
-                    className="w-full h-full object-cover object-top"
-                  />
-                ) : (
-                  m.initials
-                )}
-              </div>
-              <p className="smallcaps text-base text-teal-600 font-medium">{m.role}</p>
-              <h3 className="font-display text-2xl mt-1 tracking-tightish">
-                {m.name}
-              </h3>
-              <p className="mt-3 text-base text-ink/70 line-clamp-2">{m.bio[0]}</p>
-            </Link>
+        <div className="mt-10 lg:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {team.map((m, i) => (
+            <TeamCard key={m.slug} member={m} index={i} />
           ))}
         </div>
       </Section>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
+import { FeesTerms } from "@/components/FeesTerms";
 import { CTAStrip } from "@/components/CTAStrip";
 import { getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
@@ -82,11 +83,56 @@ export default function AifPage() {
                   <dd className="font-medium text-cream">{s.benchmark}</dd>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <dt className="smallcaps text-xs text-cream/60">AUM (firm)</dt>
-                  <dd className="font-medium text-cream tabular">{site.aum.value}</dd>
+                  <dt className="smallcaps text-xs text-cream/60">Min. investment</dt>
+                  <dd className="font-medium text-cream tabular">{s.terms?.minInvestment}</dd>
                 </div>
               </dl>
             </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Across the cap spectrum — dynamic allocation across large, mid and small caps */}
+      <Section>
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-5">
+            <Eyebrow>Across the cap spectrum</Eyebrow>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
+              One fund, the{" "}
+              <span className="italic font-light text-teal-700">whole spectrum.</span>
+            </h2>
+            <p className="mt-6 text-base lg:text-lg text-ink/75 leading-relaxed">
+              Alpha Fund I allocates dynamically across the market-cap spectrum in a
+              single portfolio — pairing the stability of quality large-caps with the
+              high-growth, alpha-generating ideas from the small-cap end of the market,
+              and shifting the mix as conditions change. It can also take opportunistic
+              exposure to REITs and commodities companies.
+            </p>
+          </div>
+          <div className="lg:col-span-7 grid sm:grid-cols-3 gap-5">
+            {[
+              {
+                cap: "Large caps",
+                role: "Stability",
+                body: "Quality leaders selected for resilience through market cycles.",
+              },
+              {
+                cap: "Mid caps",
+                role: "Upside potential",
+                body: "Held for the upside as strong businesses continue to scale.",
+              },
+              {
+                cap: "Small caps",
+                role: "High growth & alpha",
+                body: "Emerging and special-situation ideas for alpha generation.",
+              },
+            ].map((c) => (
+              <div key={c.cap} className="bg-paper border border-ink/10 rounded-md p-7">
+                <p className="smallcaps text-xs text-teal-600 font-medium">{c.role}</p>
+                <h3 className="font-display text-2xl mt-2 tracking-tightish">{c.cap}</h3>
+                <p className="mt-3 text-sm text-ink/70 leading-relaxed">{c.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
@@ -119,6 +165,29 @@ export default function AifPage() {
         <div className="mt-12">
           <FourPGrid items={s.philosophy} />
         </div>
+      </Section>
+
+      {/* Fees & terms */}
+      <Section className="bg-mist border-y border-ink/10">
+        <FeesTerms strategy={s} />
+      </Section>
+
+      {/* Fund structure */}
+      <Section>
+        <SectionTitle kicker="Fund structure">
+          The fund, <span className="italic font-light text-teal-700">in full.</span>
+        </SectionTitle>
+        <dl className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7">
+          {site.aifStructure.map((row) => (
+            <div key={row.label} className="border-t border-ink/10 pt-4">
+              <dt className="smallcaps text-xs text-ink/50 mb-1.5">{row.label}</dt>
+              <dd className="font-medium text-ink/85 leading-snug">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-8 text-sm text-ink/55">
+          Detailed Private Placement Memorandum (PPM) available on request.
+        </p>
       </Section>
 
       {/* Regulatory band */}

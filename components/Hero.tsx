@@ -16,30 +16,21 @@ export function Hero() {
               SEBI-licensed PMS · Cat-III AIF
             </p>
             <h1 className="font-display text-[44px] sm:text-6xl lg:text-[88px] leading-[0.95] tracking-tighter3 text-ink">
-              Patient capital,
-              <br />
-              <span className="italic font-light text-teal-700">compounded</span> in
-              <br />
-              India&rsquo;s best businesses.
+              Discipline investing for{" "}
+              <span className="italic font-light text-teal-700">long term wealth creation</span>
             </h1>
             <p className="mt-8 max-w-xl text-base lg:text-lg text-ink/70 leading-relaxed">
               We invest in fundamentally sound, cash-flow-generating Indian businesses run by
-              high-quality managements — and stay invested across cycles. {site.aum.value} of
-              long-horizon capital, managed alongside our own.
+              high-quality managements — and stay invested across cycles. Long-horizon
+              capital, managed alongside our own.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/strategies"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-cream rounded-md font-medium hover:bg-teal-700 transition group"
               >
-                Talk to us
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-              <Link
-                href="/strategies"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-ink/20 text-ink rounded-md font-medium hover:border-ink/60 transition"
-              >
                 Explore strategies
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
           </div>
@@ -47,27 +38,31 @@ export function Hero() {
           <div className="lg:col-span-4">
             <div className="bg-paper border border-ink/10 rounded-md p-7 shadow-soft animate-fade-up" style={{ animationDelay: "200ms" }}>
               <div className="flex items-center gap-2 mb-6">
-                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-                <p className="smallcaps text-xs text-ink/70">AUM Live · Snapshot</p>
+                <span className="w-2 h-2 rounded-full bg-teal-500" />
+                <p className="smallcaps text-xs text-ink/70">SEBI Registered</p>
               </div>
-              <p className="font-display tabular text-6xl tracking-tighter3 text-ink leading-none">
-                {site.aum.value}
-              </p>
-              <p className="text-sm text-ink/60 mt-3 tabular">
-                Total AUM · as on {site.aum.asOn}
-              </p>
+              <dl className="space-y-4">
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
+                  <dt className="smallcaps text-xs text-ink/60">PMS Reg. No.</dt>
+                  <dd className="font-mono text-sm tabular text-ink">{site.legal.sebiPms}</dd>
+                </div>
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
+                  <dt className="smallcaps text-xs text-ink/60">AIF Reg. No.</dt>
+                  <dd className="font-mono text-sm tabular text-ink">{site.legal.sebiAif}</dd>
+                </div>
+              </dl>
               <div className="mt-6 pt-5 border-t border-ink/10 grid grid-cols-3 gap-3 text-center">
                 <div>
-                  <p className="font-display text-2xl tabular text-teal-700">3</p>
-                  <p className="text-xs text-ink/60 mt-1 smallcaps">PMS strats</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl tabular text-teal-700">1</p>
-                  <p className="text-xs text-ink/60 mt-1 smallcaps">Cat-III AIF</p>
+                  <p className="font-display text-2xl tabular text-teal-700">4P</p>
+                  <p className="text-xs text-ink/60 mt-1 smallcaps">Framework</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl tabular text-teal-700">23+</p>
                   <p className="text-xs text-ink/60 mt-1 smallcaps">Yrs lead PM</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl tabular text-teal-700">Nil</p>
+                  <p className="text-xs text-ink/60 mt-1 smallcaps">Lock-in</p>
                 </div>
               </div>
             </div>

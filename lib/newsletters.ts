@@ -4,6 +4,16 @@ export type Letter = {
   title: string;
   href: string;
   year: number;
+  /** Short month label, e.g. "May". */
+  monthLong: string;
+  /** Abbreviated month, e.g. "MAY". */
+  monthShort: string;
+  /** Human-readable date, e.g. "07 May 2026". */
+  dateLabel: string;
+  /** One- to two-line summary shown beside the cover. */
+  blurb: string;
+  /** Optional cover image (drop a file in /public and set its path here). */
+  image?: string;
 };
 
 const RAW: { date: string; title: string }[] = [
@@ -45,14 +55,39 @@ const RAW: { date: string; title: string }[] = [
   { date: "2023-07-10", title: "MoneyGrow Reflections" },
 ];
 
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+// Honest, claim-free summaries for the monthly note, rotated so the archive
+// doesn't read robotically. {M} and {Y} are filled in per letter.
+const BLURB_TEMPLATES = [
+  "Our monthly note for {M} {Y} — reflections on what we're seeing across portfolios, sectors and the broader market.",
+  "What caught our eye in {M} {Y}: the themes shaping our fundamentals-first, long-term approach to Indian equities.",
+  "Notes from {M} {Y} on the businesses we own, where we're staying patient, and the opportunities we're watching.",
+  "{M} {Y} reflections — how we're reading markets and positioning portfolios for the long compounder.",
+];
+
 export const letters: Letter[] = RAW.sort((a, b) => (a.date < b.date ? 1 : -1)).map(
-  (l, i) => ({
-    serial: i + 1,
-    date: l.date,
-    title: l.title,
-    year: Number(l.date.slice(0, 4)),
-    href: `https://moneygrowindia.com/newsletters/`,
-  })
+  (l, i) => {
+    const [y, m, d] = l.date.split("-").map(Number);
+    const monthLong = MONTHS[m - 1];
+    const serial = i + 1;
+    return {
+      serial,
+      date: l.date,
+      title: l.title,
+      year: y,
+      monthLong,
+      monthShort: monthLong.slice(0, 3).toUpperCase(),
+      dateLabel: `${String(d).padStart(2, "0")} ${monthLong.slice(0, 3)} ${y}`,
+      blurb: BLURB_TEMPLATES[serial % BLURB_TEMPLATES.length]
+        .replace("{M}", monthLong)
+        .replace("{Y}", String(y)),
+      href: `https://moneygrowindia.com/newsletters/`,
+    };
+  },
 );
 
 export const lettersByYear = letters.reduce<Record<number, Letter[]>>((acc, l) => {

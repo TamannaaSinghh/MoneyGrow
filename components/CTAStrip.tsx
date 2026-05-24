@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export function CTAStrip({
   title,
   body,
-  primary = { label: "Talk to us", href: "/contact" },
+  primary,
   secondary,
 }: {
   title: ReactNode;
@@ -27,13 +27,15 @@ export function CTAStrip({
               {body && <p className="mt-6 text-cream/80 max-w-xl text-base lg:text-lg">{body}</p>}
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
-              <Link
-                href={primary.href}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-cream text-ink rounded-md font-medium hover:bg-gold-300 transition group"
-              >
-                {primary.label}
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
+              {primary && (
+                <Link
+                  href={primary.href}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-cream text-ink rounded-md font-medium hover:bg-gold-300 transition group"
+                >
+                  {primary.label}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+              )}
               {secondary && (
                 <Link
                   href={secondary.href}

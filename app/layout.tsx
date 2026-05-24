@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MoneyGrow India — SEBI-licensed PMS & Cat-III AIF",
     description:
-      "Long-horizon investing in fundamentally sound Indian businesses. AUM ₹497 cr.",
+      "Long-horizon investing in fundamentally sound Indian businesses.",
     url: "https://moneygrowindia.com",
     siteName: "MoneyGrow India",
     type: "website",
@@ -59,6 +60,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <TopBar />
         <Header />
         <main id="main" className="flex-1">
           {children}

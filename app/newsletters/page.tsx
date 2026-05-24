@@ -1,9 +1,73 @@
 import { PageHeader } from "@/components/PageHeader";
 import { Section } from "@/components/Section";
 import { CTAStrip } from "@/components/CTAStrip";
-import { lettersByYear, years } from "@/lib/newsletters";
+import { lettersByYear, years, type Letter } from "@/lib/newsletters";
 
 export const metadata = { title: "Newsletters" };
+
+function LetterRow({ letter }: { letter: Letter }) {
+  return (
+    <a
+      href={letter.href}
+      target="_blank"
+      rel="noreferrer"
+      className="group flex items-center gap-5 sm:gap-7 lg:gap-9 py-6 border-b border-ink/10 transition-colors hover:bg-mist/70"
+    >
+      {/* Cover / image */}
+      <div className="relative shrink-0 w-24 sm:w-28 lg:w-36 aspect-square rounded-md overflow-hidden bg-ink grain">
+        {letter.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={letter.image}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-grid-dark opacity-40" />
+            <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-teal-500/30 blur-2xl transition-colors group-hover:bg-gold-400/50" />
+            <div className="relative flex h-full flex-col justify-between p-3.5">
+              <span className="font-mono text-[11px] text-cream/55 tabular">
+                /{String(letter.serial).padStart(2, "0")}
+              </span>
+              <div>
+                <p className="font-display text-2xl lg:text-3xl leading-none tracking-tight text-cream">
+                  {letter.monthShort}
+                </p>
+                <p className="mt-1.5 font-mono text-xs text-gold-300 tabular">
+                  {letter.year}
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Text */}
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-3 text-xs">
+          <span className="smallcaps font-medium text-teal-600">Reflections</span>
+          <span className="h-1 w-1 rounded-full bg-ink/20" />
+          <span className="font-mono tabular text-ink/55">{letter.dateLabel}</span>
+        </div>
+        <h3 className="mt-2 font-display text-2xl lg:text-3xl tracking-tightish text-ink transition-colors group-hover:text-teal-700">
+          {letter.title}
+        </h3>
+        <p className="mt-2 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/65 line-clamp-2">
+          {letter.blurb}
+        </p>
+      </div>
+
+      {/* Action */}
+      <div className="hidden shrink-0 items-center gap-3 self-center pr-1 text-teal-600 sm:flex">
+        <span className="hidden font-medium lg:inline">Read letter</span>
+        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 transition-colors group-hover:border-teal-600 group-hover:bg-teal-600 group-hover:text-cream">
+          →
+        </span>
+      </div>
+    </a>
+  );
+}
 
 export default function NewslettersPage() {
   return (
@@ -11,21 +75,21 @@ export default function NewslettersPage() {
       <PageHeader
         eyebrow="Newsletters"
         title={
-          <>
+          <span className="lg:whitespace-nowrap lg:text-6xl">
             Reflections —{" "}
             <span className="italic font-light text-teal-700">our monthly note.</span>
-          </>
+          </span>
         }
         intro="Every month we share what we&rsquo;re seeing across portfolios, sectors, and the broader market. The full archive is below."
       />
 
       <Section>
-        <div className="space-y-12">
+        <div className="space-y-16">
           {years.map((y) => {
             const yearLetters = lettersByYear[y];
             return (
               <div key={y}>
-                <div className="flex items-end justify-between border-b border-ink/15 pb-5 mb-8">
+                <div className="flex items-end justify-between border-b-2 border-ink/80 pb-4 mb-2">
                   <h2 className="font-display text-5xl lg:text-7xl tracking-tighter3 tabular text-ink">
                     {y}
                   </h2>
@@ -34,42 +98,9 @@ export default function NewslettersPage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div>
                   {yearLetters.map((l) => (
-                    <a
-                      key={l.serial + l.date}
-                      href={l.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group bg-paper border border-ink/10 rounded-md p-7 hover:border-teal-600 hover:shadow-soft transition relative overflow-hidden"
-                    >
-                      <div className="flex items-start justify-between mb-8">
-                        <span className="font-mono text-sm text-ink/50 tabular">
-                          /{String(l.serial).padStart(2, "0")}
-                        </span>
-                        <span className="text-xs smallcaps text-teal-600">
-                          Reflections
-                        </span>
-                      </div>
-
-                      <p className="font-display text-3xl tracking-tightish leading-tight">
-                        {l.title}
-                      </p>
-                      <p className="text-sm text-ink/60 mt-3 tabular font-mono">
-                        {l.date}
-                      </p>
-
-                      <div className="mt-8 pt-5 border-t border-ink/5 flex items-center justify-between">
-                        <span className="text-base font-medium text-teal-600">
-                          View letter
-                        </span>
-                        <span className="text-teal-600 group-hover:translate-x-1 transition-transform">
-                          →
-                        </span>
-                      </div>
-
-                      <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-teal-50 group-hover:bg-gold-100/60 transition pointer-events-none" />
-                    </a>
+                    <LetterRow key={l.serial + l.date} letter={l} />
                   ))}
                 </div>
               </div>

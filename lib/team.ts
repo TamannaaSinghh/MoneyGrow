@@ -47,6 +47,24 @@ export const team: Member[] = [
     ],
   },
   {
+    slug: "gaurav-golechha",
+    name: "Gaurav Golechha",
+    role: "Director – Business Development",
+    initials: "GG",
+    photo: "/Gaurav.png",
+    linkedin: "https://www.linkedin.com/",
+    bio: [
+      "Gaurav is a finance professional with 15+ years of experience, including roles at PwC and as visiting faculty for finance at various business schools.",
+      "He leads Business Development, with a focus on investor outreach and capital-raising initiatives. He works closely with institutional investors, family offices, HNIs and distribution partners, driving strategic relationships and expanding the firm's network and assets under management.",
+      "Gaurav is a Chartered Accountant from the Institute of Chartered Accountants of India, and holds a B.Com. from Narsee Monjee College of Commerce & Economics.",
+    ],
+    highlights: [
+      "15+ years in finance",
+      "Ex-PwC · Visiting faculty",
+      "CA, ICAI · B.Com, NM College",
+    ],
+  },
+  {
     slug: "sandeep-mathivanan",
     name: "Sandeep Mathivanan",
     role: "Equity Research Analyst",
