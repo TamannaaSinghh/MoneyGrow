@@ -168,13 +168,13 @@ export function Footer() {
         </div>
 
         {/* Risk disclaimer */}
-        <div className="mt-8 pt-6 border-t border-cream/10 grid grid-cols-1 lg:grid-cols-12 gap-6 text-sm text-cream/60 leading-relaxed">
-          <p className="lg:col-span-9">
+        <div className="mt-8 pt-6 border-t border-cream/10 flex flex-col items-center text-center gap-4 text-sm text-cream/60 leading-relaxed">
+          <p>
             Investments in securities are subject to market risks. Past performance is not indicative of future returns.
             Read all scheme-related and offer documents carefully before investing. The information on this website is for
             general purposes only and does not constitute investment advice.
           </p>
-          <p className="lg:col-span-3 lg:text-right">
+          <p>
             © {year} {site.name}. All rights reserved.
           </p>
         </div>

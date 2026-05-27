@@ -2,12 +2,27 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, Eyebrow } from "@/components/Section";
 import { CTAStrip } from "@/components/CTAStrip";
+import { DownloadIcon } from "@/components/DownloadIcon";
 import { strategies } from "@/lib/strategies";
 import { site } from "@/lib/site";
 
 export const metadata = { title: "PMS · Portfolio Management Services" };
 
 const pms = strategies.filter((s) => s.category === "PMS");
+
+const pmsDisclosures = [
+  "PMS Disclosure Document",
+  "PMS Quarterly Disclosure",
+  "Form C — Statement of complaints",
+  "Investor Charter — PMS",
+  "Grievance Redressal Policy",
+  "Code of Conduct — PMS",
+  "Conflict of Interest Policy",
+  "SEBI Circulars Compliance",
+];
+
+const pmsMid = Math.ceil(pmsDisclosures.length / 2);
+const pmsColumns = [pmsDisclosures.slice(0, pmsMid), pmsDisclosures.slice(pmsMid)];
 
 export default function PmsPage() {
   return (
@@ -79,7 +94,7 @@ export default function PmsPage() {
                 </dl>
 
                 <Link
-                  href={`/strategies/${s.slug}`}
+                  href={`/investment-offerings/pms/strategies/${s.slug}`}
                   className="inline-flex items-center gap-2 mt-9 px-6 py-3.5 border border-ink/15 rounded-md text-base font-medium text-ink hover:border-teal-600 hover:text-teal-700 transition group"
                 >
                   Read more about {s.name}
@@ -91,9 +106,8 @@ export default function PmsPage() {
                 {shown.map((w, i, arr) => (
                   <div
                     key={w.title}
-                    className={`bg-paper border border-ink/10 rounded-md p-7 ${
-                      odd && i === arr.length - 1 ? "sm:col-span-2" : ""
-                    }`}
+                    className={`bg-paper border border-ink/10 rounded-md p-7 ${odd && i === arr.length - 1 ? "sm:col-span-2" : ""
+                      }`}
                   >
                     <p className="font-mono text-sm text-teal-600 tabular">
                       /{String(i + 1).padStart(2, "0")}
@@ -112,46 +126,93 @@ export default function PmsPage() {
         );
       })}
 
-      {/* Regulatory + Login band */}
-      <Section className="bg-ink text-cream">
-        <div className="grid md:grid-cols-2 gap-6">
-          <Link
-            href="/disclosures/pms"
-            className="group block border border-cream/15 rounded-md p-10 hover:bg-teal-800 transition"
-          >
-            <p className="smallcaps text-base text-gold-300 font-medium">Regulatory</p>
-            <h3 className="font-display text-3xl lg:text-4xl mt-3 tracking-tightish">
-              PMS Regulatory Disclosures
-            </h3>
-            <p className="mt-4 text-cream/70 text-base">
-              SEBI-mandated disclosure documents, investor charter, complaints
-              statement, code of conduct, and grievance policy.
-            </p>
-            <p className="mt-3 font-mono text-sm text-cream/60 tabular">
-              PMS SEBI Reg. No. {site.legal.sebiPms}
-            </p>
-            <span className="mt-6 inline-flex items-center gap-2 text-base font-medium text-gold-300 group-hover:translate-x-1 transition-transform">
-              View disclosures →
-            </span>
-          </Link>
+      {/* Regulatory disclosures */}
+      <Section id="disclosures" className="bg-mist border-y border-ink/10">
+        <p className="smallcaps text-base text-teal-600 font-medium">Regulatory</p>
+        <h2 className="font-display text-4xl lg:text-5xl mt-3 tracking-tighter2 leading-tight">
+          PMS Regulatory{" "}
+          <span className="italic font-light text-teal-700">Disclosures.</span>
+        </h2>
+        <p className="mt-5 text-base lg:text-lg text-ink/75 leading-relaxed max-w-2xl">
+          SEBI-mandated disclosure documents, investor charter, complaints
+          statement, code of conduct, and grievance policy — kept current.
+        </p>
+        <p className="mt-3 font-mono text-sm text-ink/55 tabular">
+          PMS SEBI Reg. No. {site.legal.sebiPms}
+        </p>
 
+        {/* Disclosure documents */}
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
+          {pmsColumns.map((col, colIdx) => (
+            <div
+              key={colIdx}
+              className="border border-ink/10 rounded-md overflow-hidden bg-paper"
+            >
+              {col.map((d, j) => {
+                const n = colIdx * pmsMid + j + 1;
+                return (
+                  <a
+                    key={d}
+                    href="#"
+                    className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group"
+                  >
+                    <span className="font-mono text-sm text-ink/50 tabular shrink-0">
+                      /{String(n).padStart(2, "0")}
+                    </span>
+                    <span className="font-medium text-ink text-base flex-1 min-w-0">
+                      {d}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 shrink-0">
+                      <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                      <span className="hidden sm:inline">Download</span>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-sm text-ink/60 max-w-2xl leading-relaxed">
+          Disclosure documents are kept up to date as per SEBI requirements. For
+          investor grievances, please email{" "}
+          <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+            sales@moneygrowindia.com
+          </a>{" "}
+          or escalate through{" "}
           <a
-            href={site.logins.pms}
+            className="text-teal-600 link-underline"
+            href="https://scores.gov.in"
             target="_blank"
             rel="noreferrer"
-            className="group block border border-cream/15 rounded-md p-10 hover:bg-teal-800 transition"
           >
+            SCORES
+          </a>
+          .
+        </p>
+      </Section>
+
+      {/* PMS Client Login banner */}
+      <Section className="bg-ink text-cream">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 p-10">
+          <div>
             <p className="smallcaps text-base text-gold-300 font-medium">Client area</p>
             <h3 className="font-display text-3xl lg:text-4xl mt-3 tracking-tightish">
               PMS Client Login
             </h3>
-            <p className="mt-4 text-cream/70 text-base">
+            <p className="mt-4 text-cream/70 text-base max-w-xl">
               Hosted by Kotak Wealthspectrum. Access portfolio statements,
               transactions and reports.
             </p>
-            <span className="mt-6 inline-flex items-center gap-2 text-base font-medium text-gold-300 group-hover:translate-x-1 transition-transform">
-              Open Wealthspectrum →
-            </span>
+          </div>
+          <a
+            href={site.logins.pms}
+            target="_blank"
+            rel="noreferrer"
+            className="group shrink-0 inline-flex items-center gap-2 px-7 py-4 bg-gold-400 text-ink rounded-md text-base font-medium hover:bg-gold-300 transition"
+          >
+            Open Wealthspectrum
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
       </Section>

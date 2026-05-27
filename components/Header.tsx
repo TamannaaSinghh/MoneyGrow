@@ -35,7 +35,7 @@ export function Header() {
   const isActive = useIsActive();
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-cream/80 border-b border-ink/10">
+    <header className="bg-cream border-b border-ink/10">
       <div className="max-w-container mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-8">
         <Logo />
 

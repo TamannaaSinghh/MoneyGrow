@@ -60,8 +60,10 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <TopBar />
-        <Header />
+        <div className="sticky top-0 z-40">
+          <TopBar />
+          <Header />
+        </div>
         <main id="main" className="flex-1">
           {children}
         </main>

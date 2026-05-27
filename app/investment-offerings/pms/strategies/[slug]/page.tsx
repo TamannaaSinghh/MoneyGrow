@@ -3,7 +3,9 @@ import { StrategyDetail } from "@/components/StrategyDetail";
 import { strategies, getStrategy } from "@/lib/strategies";
 
 export function generateStaticParams() {
-  return strategies.map((s) => ({ slug: s.slug }));
+  return strategies
+    .filter((s) => s.category === "PMS")
+    .map((s) => ({ slug: s.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
@@ -11,9 +13,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   return { title: s?.name ?? "Strategy" };
 }
 
-export default function StrategyDetailPage({ params }: { params: { slug: string } }) {
+export default function PmsStrategyDetailPage({ params }: { params: { slug: string } }) {
   const s = getStrategy(params.slug);
-  if (!s) notFound();
+  if (!s || s.category !== "PMS") notFound();
 
   return <StrategyDetail strategy={s} />;
 }

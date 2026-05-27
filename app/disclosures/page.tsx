@@ -21,7 +21,7 @@ export default function DisclosuresPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-6">
           <Link
-            href="/disclosures/pms"
+            href="/investment-offerings/pms#disclosures"
             className="group block bg-paper border border-ink/10 rounded-md p-10 lg:p-12 hover:border-teal-600 hover:shadow-soft transition relative overflow-hidden"
           >
             <p className="font-mono text-sm text-teal-600 tabular">/PMS</p>
@@ -39,7 +39,7 @@ export default function DisclosuresPage() {
           </Link>
 
           <Link
-            href="/disclosures/aif"
+            href="/investment-offerings/aif#disclosures"
             className="group block bg-ink text-cream rounded-md p-10 lg:p-12 hover:bg-teal-800 transition relative overflow-hidden"
           >
             <p className="font-mono text-sm text-gold-300/80 tabular">/AIF</p>

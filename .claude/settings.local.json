@@ -51,7 +51,13 @@
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,800 --screenshot=\"M:/work/EnableUser/moneygrow/_news_head.png\" \"http://localhost:3000/newsletters\")",
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,2400 --screenshot=\"M:/work/EnableUser/moneygrow/_footer.png\" \"http://localhost:3000/newsletters\")",
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,1700 --screenshot=\"M:/work/EnableUser/moneygrow/_footer.png\" \"http://localhost:3000/privacy\")",
-      "PowerShell(Get-NetTCPConnection *)"
+      "PowerShell(Get-NetTCPConnection *)",
+      "PowerShell(npx tsc --noEmit)",
+      "PowerShell(npx tsc --noEmit; if \\($?\\) { \"TYPECHECK CLEAN\" })",
+      "Bash(node -e \"console.log\\(require\\('./package.json'\\).dependencies.next\\)\")",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(Get-CimInstance *)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('public/4P strategy.png'\\);console.log\\('w='+b.readUInt32BE\\(16\\),'h='+b.readUInt32BE\\(20\\)\\);\")"
     ]
   }
 }

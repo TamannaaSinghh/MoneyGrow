@@ -1,7 +1,14 @@
 import Link from "next/link";
+import { DownloadIcon } from "@/components/DownloadIcon";
 import { site } from "@/lib/site";
 
 export function Hero() {
+  const metrics = [
+    { value: "23+", label: "Yrs lead PM" },
+    { value: "3 – 5", label: "Yr horizon" },
+    { value: "₹50 L", label: "Min. investment" },
+    { value: "Nil", label: "Lock-in" },
+  ];
   return (
     <section className="relative overflow-hidden pt-4 lg:pt-6 pb-6 lg:pb-8 grain">
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
@@ -20,9 +27,7 @@ export function Hero() {
               <span className="italic font-light text-teal-700">long term wealth creation</span>
             </h1>
             <p className="mt-8 max-w-xl text-base lg:text-lg text-ink/70 leading-relaxed">
-              We invest in fundamentally sound, cash-flow-generating Indian businesses run by
-              high-quality managements — and stay invested across cycles. Long-horizon
-              capital, managed alongside our own.
+              A professionally run asset manager investing in fundamentally sound, growing businesses led by trustworthy high-quality management teams.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -37,41 +42,38 @@ export function Hero() {
 
           <div className="lg:col-span-4">
             <div className="bg-paper border border-ink/10 rounded-md p-7 shadow-soft animate-fade-up" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-teal-500" />
-                <p className="smallcaps text-xs text-ink/70">SEBI Registered</p>
+                <p className="smallcaps text-sm text-ink/70">At a glance</p>
               </div>
-              <dl className="space-y-4">
-                <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
-                  <dt className="smallcaps text-xs text-ink/60">PMS Reg. No.</dt>
-                  <dd className="font-mono text-sm tabular text-ink">{site.legal.sebiPms}</dd>
-                </div>
-                <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
-                  <dt className="smallcaps text-xs text-ink/60">AIF Reg. No.</dt>
-                  <dd className="font-mono text-sm tabular text-ink">{site.legal.sebiAif}</dd>
-                </div>
-              </dl>
-              <div className="mt-6 pt-5 border-t border-ink/10 grid grid-cols-3 gap-3 text-center">
-                <div>
-                  <p className="font-display text-2xl tabular text-teal-700">4P</p>
-                  <p className="text-xs text-ink/60 mt-1 smallcaps">Framework</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl tabular text-teal-700">23+</p>
-                  <p className="text-xs text-ink/60 mt-1 smallcaps">Yrs lead PM</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl tabular text-teal-700">Nil</p>
-                  <p className="text-xs text-ink/60 mt-1 smallcaps">Lock-in</p>
-                </div>
+
+              {/* Key metrics */}
+              <div className="grid grid-cols-2">
+                {metrics.map((m, i) => (
+                  <div
+                    key={m.label}
+                    className={`px-3 py-4 text-center ${i % 2 === 0 ? "border-r border-ink/10" : ""} ${i < 2 ? "border-b border-ink/10" : ""}`}
+                  >
+                    <p className="font-display text-3xl tabular text-teal-700 leading-none whitespace-nowrap">
+                      {m.value}
+                    </p>
+                    <p className="text-sm text-ink/65 mt-1.5 smallcaps">{m.label}</p>
+                  </div>
+                ))}
               </div>
+
+              {/* Data sheet */}
+              <a
+                href={site.documents.statsSheet}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 pt-4 border-t border-ink/10 flex items-center gap-2 text-base font-medium text-teal-600 hover:text-teal-700 transition group"
+              >
+                <DownloadIcon className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+                Download data sheet
+              </a>
             </div>
           </div>
-        </div>
-
-        <div className="mt-10 hidden lg:flex items-center gap-3 text-sm text-ink/50">
-          <span className="smallcaps">Scroll</span>
-          <span className="block w-12 h-px bg-ink/30" />
         </div>
       </div>
     </section>

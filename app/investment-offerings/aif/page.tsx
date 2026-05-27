@@ -1,13 +1,25 @@
-import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
 import { FeesTerms } from "@/components/FeesTerms";
 import { CTAStrip } from "@/components/CTAStrip";
+import { DownloadIcon } from "@/components/DownloadIcon";
 import { getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
 
 export const metadata = { title: "AIF · MoneyGrow Alpha Fund I" };
+
+const aifDisclosures = [
+  "AIF Private Placement Memorandum",
+  "Investor Charter — AIF",
+  "Statement of Complaints — AIF",
+  "Grievance Redressal Policy — AIF",
+  "Annual Compliance Report — AIF",
+  "Risk Management Policy",
+];
+
+const aifMid = Math.ceil(aifDisclosures.length / 2);
+const aifColumns = [aifDisclosures.slice(0, aifMid), aifDisclosures.slice(aifMid)];
 
 export default function AifPage() {
   const s = getStrategy("alpha-fund");
@@ -67,24 +79,24 @@ export default function AifPage() {
             <div className="lg:col-span-5">
               <dl className="space-y-5">
                 <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Category</dt>
-                  <dd className="font-medium text-cream">Cat-III AIF</dd>
+                  <dt className="smallcaps text-sm text-cream/60">Category</dt>
+                  <dd className="font-medium text-cream text-lg">Cat-III AIF</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Style</dt>
-                  <dd className="font-medium text-cream">Long-only equity</dd>
+                  <dt className="smallcaps text-sm text-cream/60">Style</dt>
+                  <dd className="font-medium text-cream text-lg">Long-only equity</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Horizon</dt>
-                  <dd className="font-medium text-cream tabular">{s.horizon}</dd>
+                  <dt className="smallcaps text-sm text-cream/60">Horizon</dt>
+                  <dd className="font-medium text-cream tabular text-lg">{s.horizon}</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Benchmark</dt>
-                  <dd className="font-medium text-cream">{s.benchmark}</dd>
+                  <dt className="smallcaps text-sm text-cream/60">Benchmark</dt>
+                  <dd className="font-medium text-cream text-lg">{s.benchmark}</dd>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <dt className="smallcaps text-xs text-cream/60">Min. investment</dt>
-                  <dd className="font-medium text-cream tabular">{s.terms?.minInvestment}</dd>
+                  <dt className="smallcaps text-sm text-cream/60">Min. investment</dt>
+                  <dd className="font-medium text-cream tabular text-lg">{s.terms?.minInvestment}</dd>
                 </div>
               </dl>
             </div>
@@ -94,7 +106,7 @@ export default function AifPage() {
 
       {/* Across the cap spectrum — dynamic allocation across large, mid and small caps */}
       <Section>
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5">
             <Eyebrow>Across the cap spectrum</Eyebrow>
             <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
@@ -128,9 +140,9 @@ export default function AifPage() {
               },
             ].map((c) => (
               <div key={c.cap} className="bg-paper border border-ink/10 rounded-md p-7">
-                <p className="smallcaps text-xs text-teal-600 font-medium">{c.role}</p>
+                <p className="smallcaps text-sm text-teal-600 font-medium">{c.role}</p>
                 <h3 className="font-display text-2xl mt-2 tracking-tightish">{c.cap}</h3>
-                <p className="mt-3 text-sm text-ink/70 leading-relaxed">{c.body}</p>
+                <p className="mt-3 text-base text-ink/70 leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
@@ -190,31 +202,71 @@ export default function AifPage() {
         </p>
       </Section>
 
-      {/* Regulatory band */}
-      <Section className="bg-ink text-cream">
-        <div className="grid lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-7">
-            <Eyebrow>Regulatory</Eyebrow>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
-              AIF Regulatory
-              <br />
-              <span className="italic font-light text-gold-300">Disclosures.</span>
-            </h2>
-            <p className="mt-5 text-cream/70 leading-relaxed max-w-xl text-base">
-              Private placement memorandum, investor charter, complaints statement,
-              grievance redressal, annual compliance report and risk management
-              policy — all kept current.
-            </p>
-          </div>
-          <div className="lg:col-span-5 lg:text-right">
-            <Link
-              href="/disclosures/aif"
-              className="inline-flex items-center gap-2 px-7 py-4 bg-gold-400 text-ink rounded-md font-medium hover:bg-gold-300 transition"
+      {/* Regulatory disclosures */}
+      <Section id="disclosures" className="bg-mist border-y border-ink/10">
+        <p className="smallcaps text-base text-teal-600 font-medium">Regulatory</p>
+        <h2 className="font-display text-4xl lg:text-5xl mt-3 tracking-tighter2 leading-tight">
+          AIF Regulatory{" "}
+          <span className="italic font-light text-teal-700">Disclosures.</span>
+        </h2>
+        <p className="mt-5 text-base lg:text-lg text-ink/75 leading-relaxed max-w-2xl">
+          Private placement memorandum, investor charter, complaints statement,
+          grievance redressal, annual compliance report and risk management
+          policy — all kept current.
+        </p>
+        <p className="mt-3 font-mono text-sm text-ink/55 tabular">
+          AIF SEBI Reg. No. {site.legal.sebiAif}
+        </p>
+
+        {/* Disclosure documents */}
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
+          {aifColumns.map((col, colIdx) => (
+            <div
+              key={colIdx}
+              className="border border-ink/10 rounded-md overflow-hidden bg-paper"
             >
-              View AIF Disclosures →
-            </Link>
-          </div>
+              {col.map((d, j) => {
+                const n = colIdx * aifMid + j + 1;
+                return (
+                  <a
+                    key={d}
+                    href="#"
+                    className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group"
+                  >
+                    <span className="font-mono text-sm text-ink/50 tabular shrink-0">
+                      /{String(n).padStart(2, "0")}
+                    </span>
+                    <span className="font-medium text-ink text-base flex-1 min-w-0">
+                      {d}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 shrink-0">
+                      <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                      <span className="hidden sm:inline">Download</span>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          ))}
         </div>
+
+        <p className="mt-8 text-sm text-ink/60 max-w-2xl leading-relaxed">
+          Disclosure documents are kept up to date as per SEBI requirements. For
+          investor grievances, please email{" "}
+          <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+            sales@moneygrowindia.com
+          </a>{" "}
+          or escalate through{" "}
+          <a
+            className="text-teal-600 link-underline"
+            href="https://scores.gov.in"
+            target="_blank"
+            rel="noreferrer"
+          >
+            SCORES
+          </a>
+          .
+        </p>
       </Section>
 
       <CTAStrip
