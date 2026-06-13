@@ -37,7 +37,7 @@ export const site = {
   ],
   documents: {
     disclosure: "https://moneygrowindia.com/disclosure-document-moneygrow.pdf",
-    marketingPresentation: "https://moneygrowindia.com/marketing-presentation/",
+    marketingPresentation: "/MoneyGrow_PMS_AIF.pdf",
     // 👇 ADD THE EXCEL SHEET HERE: drop the file in /public (e.g. public/website-stats.xlsx)
     //    and keep the path below, OR paste a full URL to the hosted file.
     statsSheet: "/website-stats.xlsx",

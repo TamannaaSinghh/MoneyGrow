@@ -8,7 +8,7 @@ export function TeamCard({ member, index }: { member: Member; index?: number }) 
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-5">
-          <div className="shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-md overflow-hidden bg-gradient-to-br from-teal-700 to-teal-900 grain grid place-items-center text-cream">
+          <div className="shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden bg-gradient-to-br from-teal-700 to-teal-900 grain grid place-items-center text-cream">
             {member.photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -30,9 +30,7 @@ export function TeamCard({ member, index }: { member: Member; index?: number }) 
           </div>
         </div>
         {typeof index === "number" && (
-          <span className="font-mono text-sm text-ink/30 tabular pt-1">
-            /{String(index + 1).padStart(2, "0")}
-          </span>
+          <span className="mt-1.5 inline-block w-2 h-2 rotate-45 bg-teal-600/50" aria-hidden />
         )}
       </div>
 

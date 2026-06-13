@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { strategies } from "@/lib/strategies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://moneygrowindia.com";
@@ -7,7 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
-    "/strategies",
+    "/investment-offerings",
+    "/investment-offerings/pms",
+    "/investment-offerings/aif",
     "/insights",
     "/disclosures",
     "/login",
@@ -15,11 +16,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
   ];
-  return [
-    ...routes.map((r) => ({ url: `${base}${r}`, lastModified: now })),
-    ...strategies.map((s) => ({
-      url: `${base}/strategies/${s.slug}`,
-      lastModified: now,
-    })),
-  ];
+  return routes.map((r) => ({ url: `${base}${r}`, lastModified: now }));
 }

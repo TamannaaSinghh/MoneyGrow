@@ -48,43 +48,43 @@ export default function AifPage() {
 
       {/* Hero block */}
       <Section>
-        <div className="bg-ink text-cream rounded-md p-10 lg:p-14 relative overflow-hidden">
-          <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/20 blur-3xl pointer-events-none" />
+        <div className="bg-mist border border-ink/10 text-ink rounded-md p-10 lg:p-14 relative overflow-hidden">
+          <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/15 blur-3xl pointer-events-none" />
           <div className="relative grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-7">
               <Eyebrow>About the fund</Eyebrow>
               <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
                 A long-only Cat-III AIF
                 <br />
-                <span className="italic font-light text-gold-300">
+                <span className="italic font-light text-teal-700">
                   for the long compounder.
                 </span>
               </h2>
-              <p className="mt-6 text-cream/75 leading-relaxed text-base lg:text-lg max-w-2xl">
+              <p className="mt-6 text-ink/75 leading-relaxed text-base lg:text-lg max-w-2xl">
                 {s.pitch}
               </p>
             </div>
             <div className="lg:col-span-5">
               <dl className="space-y-5">
-                <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Category</dt>
-                  <dd className="font-medium text-cream">Cat-III AIF</dd>
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-4">
+                  <dt className="smallcaps text-xs text-ink/55">Category</dt>
+                  <dd className="font-medium text-ink">Cat-III AIF</dd>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Style</dt>
-                  <dd className="font-medium text-cream">Long-only equity</dd>
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-4">
+                  <dt className="smallcaps text-xs text-ink/55">Style</dt>
+                  <dd className="font-medium text-ink">Long-only equity</dd>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Horizon</dt>
-                  <dd className="font-medium text-cream tabular">{s.horizon}</dd>
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-4">
+                  <dt className="smallcaps text-xs text-ink/55">Horizon</dt>
+                  <dd className="font-medium text-ink tabular">{s.horizon}</dd>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-cream/15 pb-4">
-                  <dt className="smallcaps text-xs text-cream/60">Benchmark</dt>
-                  <dd className="font-medium text-cream">{s.benchmark}</dd>
+                <div className="flex items-baseline justify-between border-b border-ink/10 pb-4">
+                  <dt className="smallcaps text-xs text-ink/55">Benchmark</dt>
+                  <dd className="font-medium text-ink">{s.benchmark}</dd>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <dt className="smallcaps text-xs text-cream/60">Min. investment</dt>
-                  <dd className="font-medium text-cream tabular">{s.terms?.minInvestment}</dd>
+                  <dt className="smallcaps text-xs text-ink/55">Min. investment</dt>
+                  <dd className="font-medium text-ink tabular">{s.terms?.minInvestment}</dd>
                 </div>
               </dl>
             </div>
@@ -143,12 +143,10 @@ export default function AifPage() {
           What makes this <span className="italic font-light">distinct</span>.
         </SectionTitle>
         <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {s.whyPoints.map((w, i) => (
+          {s.whyPoints.map((w) => (
             <div key={w.title} className="bg-paper border border-ink/10 rounded-md p-9">
-              <p className="font-mono text-sm text-teal-600 tabular">
-                /{String(i + 1).padStart(2, "0")}
-              </p>
-              <h3 className="font-display text-2xl lg:text-3xl mt-3 tracking-tightish">
+              <span className="inline-block w-2 h-2 rotate-45 bg-teal-600" aria-hidden />
+              <h3 className="font-display text-2xl lg:text-3xl mt-4 tracking-tightish">
                 {w.title}
               </h3>
               <p className="mt-4 text-ink/70 leading-relaxed text-base">{w.body}</p>
@@ -191,16 +189,16 @@ export default function AifPage() {
       </Section>
 
       {/* Regulatory band */}
-      <Section className="bg-ink text-cream">
+      <Section className="bg-mist border-y border-ink/10">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
             <Eyebrow>Regulatory</Eyebrow>
             <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
               AIF Regulatory
               <br />
-              <span className="italic font-light text-gold-300">Disclosures.</span>
+              <span className="italic font-light text-teal-700">Disclosures.</span>
             </h2>
-            <p className="mt-5 text-cream/70 leading-relaxed max-w-xl text-base">
+            <p className="mt-5 text-ink/70 leading-relaxed max-w-xl text-base">
               Private placement memorandum, investor charter, complaints statement,
               grievance redressal, annual compliance report and risk management
               policy — all kept current.
@@ -225,7 +223,7 @@ export default function AifPage() {
             <span className="italic font-light text-gold-300">Let&rsquo;s set up a call.</span>
           </>
         }
-        body="Speak directly with a portfolio manager about onboarding, fees and how Alpha Fund I fits your portfolio."
+        primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
         secondary={{ label: "Download disclosure (PDF)", href: site.documents.disclosure }}
       />
     </>

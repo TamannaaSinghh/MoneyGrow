@@ -1,15 +1,14 @@
 import Link from "next/link";
 import type { Strategy } from "@/lib/strategies";
 
-export function StrategyCard({ strategy, index }: { strategy: Strategy; index: number }) {
-  const num = String(index + 1).padStart(2, "0");
+export function StrategyCard({ strategy }: { strategy: Strategy; index?: number }) {
   return (
     <Link
-      href={`/strategies/${strategy.slug}`}
+      href={strategy.category === "AIF" ? "/investment-offerings/aif" : "/investment-offerings/pms"}
       className="group block bg-paper border border-ink/10 rounded-md p-8 hover:border-teal-600 hover:shadow-soft transition-all relative overflow-hidden"
     >
       <div className="flex items-start justify-between mb-8">
-        <span className="font-mono text-sm text-ink/50 tabular">/ {num}</span>
+        <span className="inline-block mt-1.5 w-2.5 h-2.5 rotate-45 bg-teal-600/70" aria-hidden />
         <span className="text-xs smallcaps text-teal-600 bg-teal-50 px-2.5 py-1 rounded">
           {strategy.category}
         </span>

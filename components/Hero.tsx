@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-4 lg:pt-6 pb-6 lg:pb-8 grain">
+    <section className="relative overflow-hidden pt-10 lg:pt-16 pb-6 lg:pb-8 grain">
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
       <div className="absolute -top-32 -left-20 w-[36rem] h-[36rem] rounded-full bg-teal-100/60 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -right-20 w-[36rem] h-[36rem] rounded-full bg-gold-100/40 blur-3xl pointer-events-none" />
@@ -11,11 +11,7 @@ export function Hero() {
       <div className="relative max-w-container mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8 animate-fade-up">
-            <p className="smallcaps text-lg text-teal-600 mb-5 flex items-center gap-3 font-medium">
-              <span className="inline-block w-8 h-px bg-teal-600/60" />
-              SEBI-licensed PMS · Cat-III AIF
-            </p>
-            <h1 className="font-display text-[44px] sm:text-6xl lg:text-[88px] leading-[0.95] tracking-tighter3 text-ink">
+            <h1 className="font-display text-[36px] sm:text-5xl lg:text-[70px] leading-[0.95] tracking-tighter3 text-ink">
               Discipline investing for{" "}
               <span className="italic font-light text-teal-700">long term wealth creation</span>
             </h1>
@@ -26,10 +22,17 @@ export function Hero() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
-                href="/strategies"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-ink text-cream rounded-md font-medium hover:bg-teal-700 transition group"
+                href="/investment-offerings/pms"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-teal-700 text-cream rounded-md font-medium hover:bg-teal-800 transition group"
               >
-                Explore strategies
+                Explore PMS
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </Link>
+              <Link
+                href="/investment-offerings/aif"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-teal-600/40 text-teal-700 rounded-md font-medium hover:bg-teal-50 hover:border-teal-600 transition group"
+              >
+                Explore AIF
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
@@ -69,10 +72,6 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-10 hidden lg:flex items-center gap-3 text-sm text-ink/50">
-          <span className="smallcaps">Scroll</span>
-          <span className="block w-12 h-px bg-ink/30" />
-        </div>
       </div>
     </section>
   );

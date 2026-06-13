@@ -14,7 +14,7 @@ export function SubscribeForm() {
         type="email"
         required
         placeholder="you@example.com"
-        className="flex-1 bg-cream/5 border border-cream/15 rounded-md px-4 py-3 text-base placeholder:text-cream/40 focus:outline-none focus:border-gold-300"
+        className="flex-1 bg-paper border border-ink/15 rounded-md px-4 py-3 text-base placeholder:text-ink/40 focus:outline-none focus:border-teal-600"
       />
       <button
         type="submit"

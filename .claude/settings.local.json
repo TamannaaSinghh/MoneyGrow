@@ -51,7 +51,16 @@
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,800 --screenshot=\"M:/work/EnableUser/moneygrow/_news_head.png\" \"http://localhost:3000/newsletters\")",
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,2400 --screenshot=\"M:/work/EnableUser/moneygrow/_footer.png\" \"http://localhost:3000/newsletters\")",
       "Bash(\"C:/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,1700 --screenshot=\"M:/work/EnableUser/moneygrow/_footer.png\" \"http://localhost:3000/privacy\")",
-      "PowerShell(Get-NetTCPConnection *)"
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(echo \"---EXIT:$?---\")",
+      "Bash(find app *)",
+      "Bash(grep -rin \"reflection\" app components lib --include=\"*.tsx\" --include=\"*.ts\" -l)",
+      "Bash(command -v magick convert ffmpeg)",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp available'\\)}catch\\(e\\){console.log\\('no sharp'\\)}\")",
+      "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp OK'\\)}catch\\(e\\){console.log\\('FAIL',e.message\\)}\")",
+      "Bash(node crop-tmp.js)",
+      "Bash(node -e \"require.resolve\\('sharp'\\);console.log\\('sharp OK'\\)\")",
+      "Bash(node -e \"const s=require\\('sharp'\\);s\\('public/Viraj.png'\\).metadata\\(\\).then\\(m=>console.log\\('Viraj',m.width+'x'+m.height,'hasAlpha:',m.hasAlpha\\)\\)\")"
     ]
   }
 }

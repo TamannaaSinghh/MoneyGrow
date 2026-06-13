@@ -36,8 +36,8 @@ export default function PmsDisclosuresPage() {
               href="#"
               className="grid grid-cols-12 gap-4 px-6 py-5 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group items-center"
             >
-              <span className="col-span-1 font-mono text-sm text-ink/50 tabular">
-                /{String(i + 1).padStart(2, "0")}
+              <span className="col-span-1 flex items-center">
+                <span className="inline-block w-2 h-2 rotate-45 bg-teal-600/70" aria-hidden />
               </span>
               <span className="col-span-7 lg:col-span-8 font-medium text-ink text-base">
                 {d}
