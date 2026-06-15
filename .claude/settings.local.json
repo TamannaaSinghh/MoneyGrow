@@ -60,7 +60,13 @@
       "Bash(node -e \"try{require.resolve\\('sharp'\\);console.log\\('sharp OK'\\)}catch\\(e\\){console.log\\('FAIL',e.message\\)}\")",
       "Bash(node crop-tmp.js)",
       "Bash(node -e \"require.resolve\\('sharp'\\);console.log\\('sharp OK'\\)\")",
-      "Bash(node -e \"const s=require\\('sharp'\\);s\\('public/Viraj.png'\\).metadata\\(\\).then\\(m=>console.log\\('Viraj',m.width+'x'+m.height,'hasAlpha:',m.hasAlpha\\)\\)\")"
+      "Bash(node -e \"const s=require\\('sharp'\\);s\\('public/Viraj.png'\\).metadata\\(\\).then\\(m=>console.log\\('Viraj',m.width+'x'+m.height,'hasAlpha:',m.hasAlpha\\)\\)\")",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)",
+      "Bash(git add *)"
     ]
   }
 }
