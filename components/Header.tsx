@@ -69,7 +69,7 @@ export function Header() {
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-ink text-cream text-sm font-medium hover:bg-teal-700 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-teal-700 text-cream text-sm font-medium hover:bg-teal-800 transition"
             >
               <Icon className="w-5 h-5" />
               {label}

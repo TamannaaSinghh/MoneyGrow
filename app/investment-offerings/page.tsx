@@ -66,33 +66,33 @@ export default function InvestmentOfferingsPage() {
         {aif.map((s) => (
           <Link
             key={s.slug}
-            href={`/strategies/${s.slug}`}
-            className="block group bg-ink text-cream rounded-md p-10 lg:p-14 hover:bg-teal-800 transition relative overflow-hidden"
+            href="/investment-offerings/aif"
+            className="block group bg-mist border border-ink/10 text-ink rounded-md p-10 lg:p-14 hover:border-teal-600 hover:bg-cream transition relative overflow-hidden"
           >
-            <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/15 blur-3xl pointer-events-none" />
             <div className="relative grid lg:grid-cols-12 gap-8">
               <div className="lg:col-span-2">
-                <p className="font-mono text-sm text-gold-300/80 tabular">/ AIF</p>
-                <p className="smallcaps text-xs text-cream/50 mt-2">Cat-III</p>
+                <p className="font-mono text-sm text-gold-600 tabular">/ AIF</p>
+                <p className="smallcaps text-xs text-ink/50 mt-2">Cat-III</p>
               </div>
               <div className="lg:col-span-7">
                 <h3 className="font-display text-3xl lg:text-5xl tracking-tighter2 leading-tight">
                   {s.name}
                 </h3>
-                <p className="mt-4 text-cream/70 max-w-xl text-base">{s.pitch}</p>
+                <p className="mt-4 text-ink/70 max-w-xl text-base">{s.pitch}</p>
               </div>
               <div className="lg:col-span-3 flex flex-col justify-end gap-4">
                 <dl className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <dt className="text-cream/50 mb-1 smallcaps text-xs">Cap mix</dt>
-                    <dd className="text-cream/90 font-medium">Dynamic</dd>
+                    <dt className="text-ink/50 mb-1 smallcaps text-xs">Cap mix</dt>
+                    <dd className="text-ink/85 font-medium">Dynamic</dd>
                   </div>
                   <div>
-                    <dt className="text-cream/50 mb-1 smallcaps text-xs">Horizon</dt>
-                    <dd className="text-cream/90 font-medium tabular">{s.horizon}</dd>
+                    <dt className="text-ink/50 mb-1 smallcaps text-xs">Horizon</dt>
+                    <dd className="text-ink/85 font-medium tabular">{s.horizon}</dd>
                   </div>
                 </dl>
-                <span className="text-base font-medium text-gold-300 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                <span className="text-base font-medium text-teal-700 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                   Explore →
                 </span>
               </div>
@@ -106,23 +106,23 @@ export default function InvestmentOfferingsPage() {
           Four filters, every position must pass.
         </SectionTitle>
         <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-ink/10 border border-ink/10 rounded-md overflow-hidden">
-          {["Promoter", "Product", "Profitability", "Price"].map((p, i) => (
+          {["Promoter", "Product", "Profitability", "Price"].map((p) => (
             <div key={p} className="bg-paper p-8 lg:p-10">
-              <p className="font-mono text-sm text-teal-600 tabular">/{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="font-display text-3xl lg:text-4xl mt-3 tracking-tighter2">{p}</h3>
+              <span className="inline-block w-2 h-2 rotate-45 bg-teal-600" aria-hidden />
+              <h3 className="font-display text-3xl lg:text-4xl mt-4 tracking-tighter2">{p}</h3>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section className="bg-ink text-cream">
+      <Section className="bg-mist border-y border-ink/10">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
             <Eyebrow>Marketing presentation</Eyebrow>
             <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
               Strategies, performance, philosophy
               <br />
-              <span className="italic font-light text-gold-300">in one deck.</span>
+              <span className="italic font-light text-teal-700">in one deck.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:text-right">

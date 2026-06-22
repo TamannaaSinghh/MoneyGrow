@@ -30,6 +30,7 @@ export function CTAStrip({
               {primary && (
                 <Link
                   href={primary.href}
+                  {...(primary.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-cream text-ink rounded-md font-medium hover:bg-gold-300 transition group"
                 >
                   {primary.label}
@@ -39,6 +40,7 @@ export function CTAStrip({
               {secondary && (
                 <Link
                   href={secondary.href}
+                  {...(secondary.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-cream/20 text-cream rounded-md font-medium hover:border-cream/60 transition"
                 >
                   {secondary.label}

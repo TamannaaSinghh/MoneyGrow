@@ -57,16 +57,16 @@ const WhatsAppIcon = (p: IconProps) => (
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-ink text-cream/90 mt-4">
+    <footer className="bg-[#D0DED2] text-ink/80 border-t border-[#BCCFBF] mt-4">
       <div className="max-w-container mx-auto px-6 lg:px-10 pt-8 pb-6">
         {/* Subscribe band */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-8 border-b border-cream/10">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-8 border-b border-ink/10">
           <div className="max-w-xl">
-            <p className="smallcaps text-gold-300 text-xs">Newsletter</p>
-            <h3 className="font-display text-3xl lg:text-4xl mt-3 leading-tight">
+            <p className="smallcaps text-teal-700 text-xs">Newsletter</p>
+            <h3 className="font-display text-3xl lg:text-4xl mt-3 leading-tight text-ink sm:whitespace-nowrap">
               Subscribe to our email.
             </h3>
-            <p className="text-sm text-cream/60 mt-3">
+            <p className="text-sm text-ink/60 mt-3">
               Reflections, monthly — straight to your inbox. Unsubscribe any time.
             </p>
           </div>
@@ -78,20 +78,20 @@ export function Footer() {
           {/* Brand + registration */}
           <div className="lg:col-span-4 space-y-5">
             <Logo />
-            <p className="text-sm text-cream/60 leading-relaxed max-w-sm">
+            <p className="text-sm text-ink/60 leading-relaxed max-w-sm">
               {site.positioning}
             </p>
-            <ul className="text-sm text-cream/60 space-y-1.5 font-mono">
+            <ul className="text-sm text-ink/60 space-y-1.5 font-mono">
               <li className="flex items-center gap-2">
-                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-gold-300/70" />
+                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-teal-600/70" />
                 CIN: {site.legal.cin}
               </li>
               <li className="flex items-center gap-2">
-                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-gold-300/70" />
+                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-teal-600/70" />
                 PMS SEBI Reg. No: {site.legal.sebiPms}
               </li>
               <li className="flex items-center gap-2">
-                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-gold-300/70" />
+                <ArrowIcon className="w-3.5 h-3.5 shrink-0 text-teal-600/70" />
                 AIF SEBI Reg. No: {site.legal.sebiAif}
               </li>
             </ul>
@@ -99,47 +99,47 @@ export function Footer() {
 
           {/* Sitemap */}
           <nav className="lg:col-span-2" aria-label="Footer — site">
-            <p className="smallcaps text-gold-300/80 text-xs mb-4">Sitemap</p>
+            <p className="smallcaps text-teal-700 text-xs mb-4">Sitemap</p>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/investment-offerings/pms" className="link-underline hover:text-cream">PMS</Link></li>
-              <li><Link href="/investment-offerings/aif" className="link-underline hover:text-cream">AIF</Link></li>
-              <li><a href={site.documents.marketingPresentation} target="_blank" rel="noreferrer" className="link-underline hover:text-cream">Marketing Presentation</a></li>
-              <li><Link href="/newsletters" className="link-underline hover:text-cream">Newsletters</Link></li>
-              <li><Link href="/#team" className="link-underline hover:text-cream">Team</Link></li>
+              <li><Link href="/investment-offerings/pms" className="link-underline hover:text-teal-700">PMS</Link></li>
+              <li><Link href="/investment-offerings/aif" className="link-underline hover:text-teal-700">AIF</Link></li>
+              <li><a href={site.documents.marketingPresentation} target="_blank" rel="noreferrer" className="link-underline hover:text-teal-700">Marketing Presentation</a></li>
+              <li><Link href="/newsletters" className="link-underline hover:text-teal-700">Newsletters</Link></li>
+              <li><Link href="/#team" className="link-underline hover:text-teal-700">Team</Link></li>
             </ul>
           </nav>
 
           {/* Legal */}
           <nav className="lg:col-span-2" aria-label="Footer — legal">
-            <p className="smallcaps text-gold-300/80 text-xs mb-4">Legal</p>
+            <p className="smallcaps text-teal-700 text-xs mb-4">Legal</p>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/disclaimer" className="link-underline hover:text-cream">Disclaimer</Link></li>
-              <li><Link href="/terms" className="link-underline hover:text-cream">Terms &amp; Conditions</Link></li>
-              <li><Link href="/privacy" className="link-underline hover:text-cream">Privacy Policy</Link></li>
+              <li><Link href="/disclaimer" className="link-underline hover:text-teal-700">Disclaimer</Link></li>
+              <li><Link href="/terms" className="link-underline hover:text-teal-700">Terms &amp; Conditions</Link></li>
+              <li><Link href="/privacy" className="link-underline hover:text-teal-700">Privacy Policy</Link></li>
             </ul>
           </nav>
 
           {/* Contact */}
           <div className="lg:col-span-4">
-            <p className="smallcaps text-gold-300/80 text-xs mb-4">Get in touch</p>
-            <ul className="space-y-3 text-sm text-cream/70">
+            <p className="smallcaps text-teal-700 text-xs mb-4">Get in touch</p>
+            <ul className="space-y-3 text-sm text-ink/70">
               <li className="flex items-start gap-2.5">
-                <BuildingIcon className="w-4 h-4 mt-0.5 shrink-0 text-cream/40" />
-                <span className="text-cream/85">{site.name}</span>
+                <BuildingIcon className="w-4 h-4 mt-0.5 shrink-0 text-ink/40" />
+                <span className="text-ink/85">{site.name}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPinIcon className="w-4 h-4 mt-0.5 shrink-0 text-cream/40" />
+                <MapPinIcon className="w-4 h-4 mt-0.5 shrink-0 text-ink/40" />
                 <address className="not-italic leading-relaxed">{site.contact.address}</address>
               </li>
               <li className="flex items-center gap-2.5">
-                <PhoneIcon className="w-4 h-4 shrink-0 text-cream/40" />
-                <a href={site.contact.phoneHref} className="link-underline hover:text-cream tabular">
+                <PhoneIcon className="w-4 h-4 shrink-0 text-ink/40" />
+                <a href={site.contact.phoneHref} className="link-underline hover:text-teal-700 tabular">
                   {site.contact.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MailIcon className="w-4 h-4 shrink-0 text-cream/40" />
-                <a href={site.contact.emailHref} className="link-underline hover:text-cream">
+                <MailIcon className="w-4 h-4 shrink-0 text-ink/40" />
+                <a href={site.contact.emailHref} className="link-underline hover:text-teal-700">
                   {site.contact.email}
                 </a>
               </li>
@@ -151,24 +151,24 @@ export function Footer() {
                 href={site.contact.whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-md border border-cream/15 text-sm text-cream/80 hover:border-teal-400 hover:text-cream transition"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-md border border-ink/15 text-sm text-ink/80 hover:border-teal-600 hover:text-ink transition"
               >
-                <WhatsAppIcon className="w-4 h-4 text-teal-400" />
+                <WhatsAppIcon className="w-4 h-4 text-teal-600" />
                 WhatsApp
               </a>
               <a
                 href={site.contact.emailHref}
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-md border border-cream/15 text-sm text-cream/80 hover:border-gold-300 hover:text-cream transition"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-md border border-ink/15 text-sm text-ink/80 hover:border-gold-500 hover:text-ink transition"
               >
-                <MailIcon className="w-4 h-4 text-gold-300" />
-                Gmail
+                <MailIcon className="w-4 h-4 text-gold-600" />
+                Email
               </a>
             </div>
           </div>
         </div>
 
         {/* Risk disclaimer */}
-        <div className="mt-8 pt-6 border-t border-cream/10 flex flex-col items-center text-center gap-4 text-sm text-cream/60 leading-relaxed">
+        <div className="mt-8 pt-6 border-t border-ink/10 flex flex-col items-center text-center gap-4 text-sm text-ink/60 leading-relaxed">
           <p>
             Investments in securities are subject to market risks. Past performance is not indicative of future returns.
             Read all scheme-related and offer documents carefully before investing. The information on this website is for

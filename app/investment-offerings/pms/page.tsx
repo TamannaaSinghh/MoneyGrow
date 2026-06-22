@@ -225,7 +225,7 @@ export default function PmsPage() {
             <span className="italic font-light text-gold-300">Let&rsquo;s set up a call.</span>
           </>
         }
-        body="Speak directly with a portfolio manager about onboarding, fees and how each strategy fits your portfolio."
+        primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
         secondary={{ label: "Download disclosure (PDF)", href: site.documents.disclosure }}
       />
     </>

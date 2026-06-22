@@ -40,20 +40,20 @@ export default function LoginPage() {
 
           <a
             href="#"
-            className="group block bg-ink text-cream rounded-md p-10 lg:p-12 hover:bg-teal-800 transition relative overflow-hidden"
+            className="group block bg-mist border border-ink/10 text-ink rounded-md p-10 lg:p-12 hover:border-teal-600 hover:bg-cream transition relative overflow-hidden"
           >
-            <p className="font-mono text-xs text-gold-300/80 tabular">/AIF</p>
+            <p className="font-mono text-xs text-gold-600 tabular">/AIF</p>
             <h2 className="font-display text-4xl mt-4 tracking-tighter2 leading-tight">
               AIF Login
             </h2>
-            <p className="mt-4 text-cream/60 text-sm">
+            <p className="mt-4 text-ink/60 text-sm">
               Investors in MoneyGrow Alpha Fund I — access fund statements, capital calls and
               distributions.
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-gold-300 group-hover:translate-x-1 transition-transform">
+            <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-teal-700 group-hover:translate-x-1 transition-transform">
               Continue →
             </span>
-            <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold-400/10 blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold-400/15 blur-2xl pointer-events-none" />
           </a>
         </div>
 

@@ -20,13 +20,13 @@ export default function AifLoginPage() {
 
       <Section>
         <div className="max-w-xl">
-          <div className="bg-ink text-cream rounded-md p-10 lg:p-12 relative overflow-hidden">
-            <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold-400/10 blur-2xl pointer-events-none" />
-            <p className="font-mono text-sm text-gold-300/80 tabular">/AIF</p>
+          <div className="bg-mist border border-ink/10 text-ink rounded-md p-10 lg:p-12 relative overflow-hidden">
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold-400/15 blur-2xl pointer-events-none" />
+            <p className="font-mono text-sm text-gold-600 tabular">/AIF</p>
             <h2 className="font-display text-4xl mt-4 tracking-tighter2 leading-tight">
               Sign in
             </h2>
-            <p className="mt-4 text-cream/70 text-base">
+            <p className="mt-4 text-ink/70 text-base">
               The AIF investor portal is rolling out shortly. In the meantime,
               please email us for statements and reports.
             </p>

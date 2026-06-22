@@ -15,17 +15,17 @@ export const team: Member[] = [
     name: "Manish Gupta",
     role: "Managing Director",
     initials: "MG",
-    photo: "/Manish-1.jpg",
+    photo: "/Manish new.png",
     linkedin: "https://www.linkedin.com/in/manish-gupta-85196b/",
     bio: [
-      "Manish has over 23 years of experience in Indian equity markets.",
+      "Manish has over 25+ years of experience in Indian equity markets.",
       "He was part of the senior leadership team at CLSA's Institutional Equities business in Mumbai and New York. During his 17 years at CLSA, he advised leading FIIs, insurance companies, mutual funds, private equity funds and sovereign wealth funds on their Indian equity investments. He was involved in numerous IPOs, QIPs, equity placements and block trades during his tenure.",
       "He holds an MBA from IIM Ahmedabad (2001), a 5-year Integrated M.Tech. from IIT Delhi (1999), and is a CFA charter holder from the CFA Institute, USA (2004).",
     ],
     highlights: [
-      "23+ years in Indian equities",
+      "25+ years in Indian equities",
       "17 years at CLSA (Mumbai & New York)",
-      "MBA, IIM Ahmedabad · M.Tech, IIT Delhi · CFA",
+      "MBA, IIM Ahmedabad · Integerated M.Tech, IIT Delhi · CFA",
     ],
   },
   {
@@ -33,7 +33,7 @@ export const team: Member[] = [
     name: "Viraj Mahadevia",
     role: "Portfolio Manager & Partner",
     initials: "VM",
-    photo: "/Viraj.png",
+    photo: "/Viraj-fit.png",
     linkedin: "https://www.linkedin.com/in/viraj-mahadevia-5a49176b",
     bio: [
       "Viraj has over 20 years of experience in finance, with 10 years in Private Equity in India as part of Actis (AUM of over USD 7.5 billion across various funds), one of the largest emerging market PE funds.",
@@ -52,7 +52,7 @@ export const team: Member[] = [
     role: "Director – Business Development",
     initials: "GG",
     photo: "/Gaurav.png",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://in.linkedin.com/in/gaurav-golechha-69893a23",
     bio: [
       "Gaurav is a finance professional with 15+ years of experience, including roles at PwC and as visiting faculty for finance at various business schools.",
       "He leads Business Development, with a focus on investor outreach and capital-raising initiatives. He works closely with institutional investors, family offices, HNIs and distribution partners, driving strategic relationships and expanding the firm's network and assets under management.",
@@ -69,8 +69,8 @@ export const team: Member[] = [
     name: "Sandeep Mathivanan",
     role: "Equity Research Analyst",
     initials: "SM",
-    photo: "/Sandeep.png",
-    linkedin: "https://www.linkedin.com/",
+    photo: "/Portrait Sandeep.png",
+    linkedin: "https://www.linkedin.com/in/sandeep-m-a46972215/",
     bio: [
       "Sandeep is an engineer with a Bachelor's degree in Electronics and Telecommunication Engineering and a Master's in Management Studies specialising in Finance.",
       "He had interned at UTI PMS as an analyst and worked at ICICI Bank for over a year in the trade finance department.",
