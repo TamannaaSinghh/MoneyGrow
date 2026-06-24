@@ -4,5 +4,8 @@ out
 .env
 .env.local
 *.log
+
+# Per-machine Claude Code settings (may contain approved commands w/ secrets)
+.claude/settings.local.json
 .DS_Store
 docx_extracted.txt

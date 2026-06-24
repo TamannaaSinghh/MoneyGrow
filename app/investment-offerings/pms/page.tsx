@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
-import { Section, Eyebrow } from "@/components/Section";
+import { Section } from "@/components/Section";
 import { CTAStrip } from "@/components/CTAStrip";
 import { DownloadIcon } from "@/components/DownloadIcon";
+import { StrategyInline } from "@/components/StrategyInline";
 import { strategies } from "@/lib/strategies";
 import { site } from "@/lib/site";
 
@@ -59,72 +59,10 @@ export default function PmsPage() {
         }
       />
 
-      {/* Strategy feature sections */}
-      {pms.map((s, idx) => {
-        const shown = s.whyPoints.slice(0, 4);
-        const odd = shown.length % 2 === 1;
-        return (
-          <Section
-            key={s.slug}
-            className={idx % 2 === 0 ? "bg-mist border-y border-ink/10" : ""}
-          >
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-              <div className="lg:col-span-5">
-                <Eyebrow>{s.category} · Strategy</Eyebrow>
-                <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
-                  {s.name}
-                </h2>
-                <p className="mt-6 text-base lg:text-lg text-ink/75 leading-relaxed">
-                  {s.longPitch}
-                </p>
-
-                <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
-                  <div>
-                    <dt className="smallcaps text-xs text-ink/50 mb-1.5">Cap mix</dt>
-                    <dd className="font-medium tabular">{s.marketCap}</dd>
-                  </div>
-                  <div>
-                    <dt className="smallcaps text-xs text-ink/50 mb-1.5">Horizon</dt>
-                    <dd className="font-medium tabular">{s.horizon}</dd>
-                  </div>
-                  <div>
-                    <dt className="smallcaps text-xs text-ink/50 mb-1.5">Benchmark</dt>
-                    <dd className="font-medium">{s.benchmark}</dd>
-                  </div>
-                </dl>
-
-                <Link
-                  href={`/investment-offerings/pms/strategies/${s.slug}`}
-                  className="inline-flex items-center gap-2 mt-9 px-6 py-3.5 border border-ink/15 rounded-md text-base font-medium text-ink hover:border-teal-600 hover:text-teal-700 transition group"
-                >
-                  Read more about {s.name}
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </Link>
-              </div>
-
-              <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5 auto-rows-fr">
-                {shown.map((w, i, arr) => (
-                  <div
-                    key={w.title}
-                    className={`bg-paper border border-ink/10 rounded-md p-7 ${odd && i === arr.length - 1 ? "sm:col-span-2" : ""
-                      }`}
-                  >
-                    <p className="font-mono text-sm text-teal-600 tabular">
-                      /{String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="font-display text-xl lg:text-2xl mt-2 tracking-tightish">
-                      {w.title}
-                    </h3>
-                    <p className="mt-3 text-sm lg:text-base text-ink/70 leading-relaxed">
-                      {w.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-        );
-      })}
+      {/* Strategy detail — full information inline (no separate pages) */}
+      {pms.map((s) => (
+        <StrategyInline key={s.slug} strategy={s} />
+      ))}
 
       {/* Regulatory disclosures */}
       <Section id="disclosures" className="bg-mist border-y border-ink/10">

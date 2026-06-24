@@ -4,6 +4,7 @@ import "./globals.css";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { AppShell } from "@/components/AppShell";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -54,20 +55,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:text-cream focus:px-3 focus:py-2 focus:rounded"
+        <AppShell
+          header={
+            <div className="sticky top-0 z-40">
+              <TopBar />
+              <Header />
+            </div>
+          }
+          footer={<Footer />}
         >
-          Skip to content
-        </a>
-        <div className="sticky top-0 z-40">
-          <TopBar />
-          <Header />
-        </div>
-        <main id="main" className="flex-1">
           {children}
-        </main>
-        <Footer />
+        </AppShell>
       </body>
     </html>
   );

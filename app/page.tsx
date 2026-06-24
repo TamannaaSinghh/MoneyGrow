@@ -4,12 +4,13 @@ import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { TeamCard } from "@/components/TeamCard";
 import { LetterRow } from "@/components/LetterRow";
 import { ComplianceStrip } from "@/components/ComplianceStrip";
-import { team } from "@/lib/team";
+import { getTeam } from "@/sanity/lib/team";
 import { letters } from "@/lib/newsletters";
 import { site } from "@/lib/site";
 
-export default function Home() {
+export default async function Home() {
   const latest = letters[0];
+  const team = await getTeam();
   return (
     <>
       <Hero />

@@ -1,14 +1,8 @@
 import Link from "next/link";
-import { DownloadIcon } from "@/components/DownloadIcon";
-import { site } from "@/lib/site";
+import { getAtAGlanceMetrics } from "@/sanity/lib/atAGlance";
 
-export function Hero() {
-  const metrics = [
-    { value: "23+", label: "Yrs lead PM" },
-    { value: "3 – 5", label: "Yr horizon" },
-    { value: "₹50 L", label: "Min. investment" },
-    { value: "Nil", label: "Lock-in" },
-  ];
+export async function Hero() {
+  const metrics = await getAtAGlanceMetrics();
   return (
     <section className="relative overflow-hidden pt-10 lg:pt-16 pb-6 lg:pb-8 grain">
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
@@ -45,11 +39,6 @@ export function Hero() {
 
           <div className="lg:col-span-4">
             <div className="bg-paper border border-ink/10 rounded-md p-7 shadow-soft animate-fade-up" style={{ animationDelay: "200ms" }}>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-teal-500" />
-                <p className="smallcaps text-sm text-ink/70">At a glance</p>
-              </div>
-
               {/* Key metrics */}
               <div className="grid grid-cols-2">
                 {metrics.map((m, i) => (
@@ -64,17 +53,6 @@ export function Hero() {
                   </div>
                 ))}
               </div>
-
-              {/* Data sheet */}
-              <a
-                href={site.documents.statsSheet}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 pt-4 border-t border-ink/10 flex items-center gap-2 text-base font-medium text-teal-600 hover:text-teal-700 transition group"
-              >
-                <DownloadIcon className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-                Download data sheet
-              </a>
             </div>
           </div>
         </div>

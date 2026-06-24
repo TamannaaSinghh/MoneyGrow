@@ -1,46 +1,46 @@
-import { PageHeader } from "@/components/PageHeader";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
 import { FeesTerms } from "@/components/FeesTerms";
-import { CTAStrip } from "@/components/CTAStrip";
 import type { Strategy } from "@/lib/strategies";
-import { site } from "@/lib/site";
 
-export function StrategyDetail({ strategy: s }: { strategy: Strategy }) {
+/**
+ * Full per-strategy detail rendered inline on an offering page —
+ * everything the old standalone strategy detail page used to show,
+ * minus the page-level header and CTA.
+ */
+export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
   const isAif = s.category === "AIF";
 
   return (
     <>
-      <PageHeader
-        eyebrow={`${s.category} · Strategy`}
-        title={
-          <>
-            {s.name.split(" ").slice(0, -1).join(" ")}{" "}
-            <span className="italic font-light text-teal-700">{s.name.split(" ").slice(-1)}</span>
-          </>
-        }
-        intro={s.longPitch}
-        meta={
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-6 max-w-3xl">
-            <div>
-              <p className="smallcaps text-xs text-ink/60 mb-2">Cap mix</p>
-              <p className="font-medium tabular">{s.marketCap}</p>
-            </div>
-            <div>
-              <p className="smallcaps text-xs text-ink/60 mb-2">Horizon</p>
-              <p className="font-medium tabular">{s.horizon}</p>
-            </div>
-            <div>
-              <p className="smallcaps text-xs text-ink/60 mb-2">Benchmark</p>
-              <p className="font-medium">{s.benchmark}</p>
-            </div>
-            <div>
-              <p className="smallcaps text-xs text-ink/60 mb-2">Category</p>
-              <p className="font-medium">{isAif ? "Cat-III AIF" : "SEBI PMS"}</p>
-            </div>
+      {/* Intro */}
+      <Section className="border-t border-ink/10">
+        <Eyebrow>{s.category} · Strategy</Eyebrow>
+        <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
+          {s.name}
+        </h2>
+        <p className="mt-6 max-w-3xl text-base lg:text-lg text-ink/75 leading-relaxed">
+          {s.longPitch}
+        </p>
+        <dl className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-6 max-w-3xl">
+          <div>
+            <dt className="smallcaps text-xs text-ink/50 mb-2">Cap mix</dt>
+            <dd className="font-medium tabular">{s.marketCap}</dd>
           </div>
-        }
-      />
+          <div>
+            <dt className="smallcaps text-xs text-ink/50 mb-2">Horizon</dt>
+            <dd className="font-medium tabular">{s.horizon}</dd>
+          </div>
+          <div>
+            <dt className="smallcaps text-xs text-ink/50 mb-2">Benchmark</dt>
+            <dd className="font-medium">{s.benchmark}</dd>
+          </div>
+          <div>
+            <dt className="smallcaps text-xs text-ink/50 mb-2">Category</dt>
+            <dd className="font-medium">{isAif ? "Cat-III AIF" : "SEBI PMS"}</dd>
+          </div>
+        </dl>
+      </Section>
 
       {/* Fees & terms */}
       <Section>
@@ -52,7 +52,7 @@ export function StrategyDetail({ strategy: s }: { strategy: Strategy }) {
         <SectionTitle kicker={`Why ${s.name}`}>
           What makes this <span className="italic font-light">distinct</span>.
         </SectionTitle>
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
           {s.whyPoints.map((w, i) => (
             <div key={w.title} className="bg-paper border border-ink/10 rounded-md p-9">
               <p className="font-mono text-sm text-teal-600 tabular">/{String(i + 1).padStart(2, "0")}</p>
@@ -157,18 +157,6 @@ export function StrategyDetail({ strategy: s }: { strategy: Strategy }) {
           </div>
         </div>
       </Section>
-
-      <CTAStrip
-        title={
-          <>
-            Ready to start with {s.name}?
-            <br />
-            <span className="italic font-light text-gold-300">Let&rsquo;s set up a call.</span>
-          </>
-        }
-        body="Speak directly with a portfolio manager about onboarding, fees and how the strategy fits your portfolio."
-        secondary={{ label: "Download disclosure (PDF)", href: site.documents.disclosure }}
-      />
     </>
   );
 }

@@ -24,9 +24,9 @@ export function StrategyCard({
 }) {
   const num = String(index + 1).padStart(2, "0");
   const href =
-    strategy.category === "PMS"
-      ? `/investment-offerings/pms/strategies/${strategy.slug}`
-      : `/strategies/${strategy.slug}`;
+    strategy.category === "AIF"
+      ? "/investment-offerings/aif"
+      : "/investment-offerings/pms";
 
   const meta = (
     <dl className="grid grid-cols-2 gap-4 text-sm">
