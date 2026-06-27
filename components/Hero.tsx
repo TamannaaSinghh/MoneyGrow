@@ -13,7 +13,7 @@ export async function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8 animate-fade-up">
             <h1 className="font-display text-[36px] sm:text-5xl lg:text-[70px] leading-[0.95] tracking-tighter3 text-ink">
-              Discipline investing for{" "}
+              Disciplined investing for{" "}
               <span className="italic font-light text-teal-700">long term wealth creation</span>
             </h1>
             <p className="mt-8 max-w-xl text-base lg:text-lg text-ink/70 leading-relaxed">

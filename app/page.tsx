@@ -3,7 +3,6 @@ import { Hero } from "@/components/Hero";
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { TeamCard } from "@/components/TeamCard";
 import { LetterRow } from "@/components/LetterRow";
-import { ComplianceStrip } from "@/components/ComplianceStrip";
 import { getTeam } from "@/sanity/lib/team";
 import { letters } from "@/lib/newsletters";
 import { site } from "@/lib/site";
@@ -14,7 +13,6 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <ComplianceStrip />
 
       {/* About Us */}
       <Section id="about">
@@ -72,13 +70,7 @@ export default async function Home() {
                 k: "02",
                 title: "Long-term, by design",
                 body:
-                  "We invest in businesses we expect to compound for 3 – 5 years. We don't try to predict short-term price moves, and we don't churn portfolios chasing them.",
-              },
-              {
-                k: "03",
-                title: "The 4P framework",
-                body:
-                  "Promoter, Product, Profitability, Price — every position has to clear all four filters. We pair core compounders with selective special-situation bets.",
+                  "We invest in businesses we expect to compound for 3 – 5 years. We don't try to predict short-term price moves, and we keep churn to a minimum.",
               },
             ].map((b) => (
               <div
@@ -106,7 +98,7 @@ export default async function Home() {
       <Section id="team" className="bg-mist">
         <Eyebrow>Team</Eyebrow>
         <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tighter2 lg:whitespace-nowrap">
-          Meet the mind behind <span className="italic font-light text-teal-700">investment.</span>
+          Meet the minds behind <span className="italic font-light text-teal-700">investment.</span>
         </h2>
 
         <div className="mt-10 lg:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">

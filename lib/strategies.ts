@@ -159,7 +159,7 @@ export const strategies: Strategy[] = [
     pitch:
       "A long-only Cat-III AIF generating long-term wealth through dynamic allocation across Indian equities.",
     longPitch:
-      "Long-only strategy investing primarily in listed equities and opportunistically in REITs and commodities companies, aiming to outperform the benchmark while managing risk.",
+      "Long-only strategy investing primarily in listed equities and opportunistically in REITs and commodities companies, aiming to outperform the benchmark while managing risk, with no leverage or lock-in.",
     marketCap: "Dynamic — Large · Mid · Small + REITs / Commodities",
     horizon: "5+ years",
     benchmark: "Nifty 50 TRI",

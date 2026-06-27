@@ -1,6 +1,5 @@
 import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
-import { FeesTerms } from "@/components/FeesTerms";
 import type { Strategy } from "@/lib/strategies";
 
 /**
@@ -42,21 +41,15 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
         </dl>
       </Section>
 
-      {/* Fees & terms */}
-      <Section>
-        <FeesTerms strategy={s} />
-      </Section>
-
       {/* Why this strategy */}
       <Section className="bg-mist border-y border-ink/10">
         <SectionTitle kicker={`Why ${s.name}`}>
           What makes this <span className="italic font-light">distinct</span>.
         </SectionTitle>
         <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {s.whyPoints.map((w, i) => (
+          {s.whyPoints.map((w) => (
             <div key={w.title} className="bg-paper border border-ink/10 rounded-md p-9">
-              <p className="font-mono text-sm text-teal-600 tabular">/{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="font-display text-2xl lg:text-3xl mt-3 tracking-tightish">{w.title}</h3>
+              <h3 className="font-display text-2xl lg:text-3xl tracking-tightish">{w.title}</h3>
               <p className="mt-4 text-ink/75 leading-relaxed text-base">{w.body}</p>
             </div>
           ))}

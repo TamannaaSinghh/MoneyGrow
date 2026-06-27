@@ -86,17 +86,13 @@ export default function PmsPage() {
               key={colIdx}
               className="border border-ink/10 rounded-md overflow-hidden bg-paper"
             >
-              {col.map((d, j) => {
-                const n = colIdx * pmsMid + j + 1;
+              {col.map((d) => {
                 return (
                   <a
                     key={d}
                     href="#"
                     className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group"
                   >
-                    <span className="font-mono text-sm text-ink/50 tabular shrink-0">
-                      /{String(n).padStart(2, "0")}
-                    </span>
                     <span className="font-medium text-ink text-base flex-1 min-w-0">
                       {d}
                     </span>
@@ -164,7 +160,7 @@ export default function PmsPage() {
           </>
         }
         primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
-        secondary={{ label: "Download disclosure (PDF)", href: site.documents.disclosure }}
+        secondary={{ label: "Download presentation", href: site.documents.marketingPresentation }}
       />
     </>
   );
