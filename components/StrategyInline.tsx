@@ -72,28 +72,24 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
 
       {/* Emerging themes (if any) */}
       {s.emergingThemes && (
-        <Section className="bg-ink text-cream">
-          <div className="grid lg:grid-cols-12 gap-10 items-end">
-            <div className="lg:col-span-6">
-              <Eyebrow>Emerging themes</Eyebrow>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
-                Where we&rsquo;re looking <span className="italic font-light text-gold-300">next.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-6">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {s.emergingThemes.map((t) => (
-                  <li
-                    key={t}
-                    className="border border-cream/15 rounded-md px-5 py-4 text-base flex items-center gap-3"
-                  >
-                    <span className="font-mono text-sm text-gold-300 tabular">→</span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <Section>
+          <div>
+            <Eyebrow>Emerging themes</Eyebrow>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tighter2 leading-tight">
+              Where we&rsquo;re looking <span className="italic font-light">next.</span>
+            </h2>
           </div>
+          <ul className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {s.emergingThemes.map((t) => (
+              <li
+                key={t}
+                className="border border-ink/10 rounded-md px-5 py-4 text-base flex items-center gap-3 bg-white"
+              >
+                <span className="font-mono text-sm text-teal-600 tabular">→</span>
+                {t}
+              </li>
+            ))}
+          </ul>
         </Section>
       )}
 

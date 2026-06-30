@@ -5,26 +5,23 @@ import { DownloadIcon } from "@/components/DownloadIcon";
 import { StrategyInline } from "@/components/StrategyInline";
 import { strategies } from "@/lib/strategies";
 import { site } from "@/lib/site";
+import { getPmsDisclosures } from "@/sanity/lib/pmsDisclosures";
 
 export const metadata = { title: "PMS · Portfolio Management Services" };
 
 const pms = strategies.filter((s) => s.category === "PMS");
 
-const pmsDisclosures = [
-  "PMS Disclosure Document",
-  "PMS Quarterly Disclosure",
-  "Form C — Statement of complaints",
-  "Investor Charter — PMS",
-  "Grievance Redressal Policy",
-  "Code of Conduct — PMS",
-  "Conflict of Interest Policy",
-  "SEBI Circulars Compliance",
-];
+export default async function PmsPage() {
+  const pmsDisclosures = [...(await getPmsDisclosures())].sort(
+    (a, b) =>
+      (a.status === "pending" ? 1 : 0) - (b.status === "pending" ? 1 : 0)
+  );
+  const pmsMid = Math.ceil(pmsDisclosures.length / 2);
+  const pmsColumns = [
+    pmsDisclosures.slice(0, pmsMid),
+    pmsDisclosures.slice(pmsMid),
+  ];
 
-const pmsMid = Math.ceil(pmsDisclosures.length / 2);
-const pmsColumns = [pmsDisclosures.slice(0, pmsMid), pmsDisclosures.slice(pmsMid)];
-
-export default function PmsPage() {
   return (
     <>
       <PageHeader
@@ -73,7 +70,7 @@ export default function PmsPage() {
         </h2>
         <p className="mt-5 text-base lg:text-lg text-ink/75 leading-relaxed max-w-2xl">
           SEBI-mandated disclosure documents, investor charter, complaints
-          statement, code of conduct, and grievance policy — kept current.
+          statement, investor education, and grievance policy — kept current.
         </p>
         <p className="mt-3 font-mono text-sm text-ink/55 tabular">
           PMS SEBI Reg. No. {site.legal.sebiPms}
@@ -87,14 +84,31 @@ export default function PmsPage() {
               className="border border-ink/10 rounded-md overflow-hidden bg-paper"
             >
               {col.map((d) => {
+                if (d.status === "pending") {
+                  return (
+                    <div
+                      key={d.label}
+                      className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0"
+                    >
+                      <span className="font-medium text-ink text-base flex-1 min-w-0">
+                        {d.label}
+                      </span>
+                      <span className="text-sm font-medium text-ink/50 shrink-0">
+                        Under Preparation
+                      </span>
+                    </div>
+                  );
+                }
                 return (
                   <a
-                    key={d}
-                    href="#"
+                    key={d.label}
+                    href={d.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group"
                   >
                     <span className="font-medium text-ink text-base flex-1 min-w-0">
-                      {d}
+                      {d.label}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 shrink-0">
                       <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
