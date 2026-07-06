@@ -17,7 +17,7 @@ export function PageHeader({
       <div className="absolute -top-32 -right-20 w-[28rem] h-[28rem] rounded-full bg-teal-100/50 blur-3xl pointer-events-none" />
       <div className="relative max-w-container mx-auto px-6 lg:px-10">
         {eyebrow && (
-          <p className="smallcaps text-lg text-teal-600 mb-5 flex items-center gap-3 font-medium">
+          <p className="smallcaps text-lg text-teal-700 mb-5 flex items-center gap-3 font-medium">
             <span className="inline-block w-8 h-px bg-teal-600/60" />
             {eyebrow}
           </p>

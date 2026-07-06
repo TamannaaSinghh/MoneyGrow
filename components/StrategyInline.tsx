@@ -23,19 +23,19 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
         </p>
         <dl className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-6 max-w-3xl">
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-2">Cap mix</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-2">Cap mix</dt>
             <dd className="font-medium tabular">{s.marketCap}</dd>
           </div>
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-2">Horizon</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-2">Horizon</dt>
             <dd className="font-medium tabular">{s.horizon}</dd>
           </div>
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-2">Benchmark</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-2">Benchmark</dt>
             <dd className="font-medium">{s.benchmark}</dd>
           </div>
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-2">Category</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-2">Category</dt>
             <dd className="font-medium">{isAif ? "Cat-III AIF" : "SEBI PMS"}</dd>
           </div>
         </dl>
@@ -85,7 +85,7 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
                 key={t}
                 className="border border-ink/10 rounded-md px-5 py-4 text-base flex items-center gap-3 bg-white"
               >
-                <span className="font-mono text-sm text-teal-600 tabular">→</span>
+                <span className="font-mono text-sm text-teal-700 tabular">→</span>
                 {t}
               </li>
             ))}
@@ -104,30 +104,30 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
           </div>
           <div className="lg:col-span-7 grid md:grid-cols-2 gap-6">
             <div className="bg-paper border border-teal-200 rounded-md p-7">
-              <p className="smallcaps text-sm text-teal-600 mb-3">Built for</p>
+              <p className="smallcaps text-sm text-teal-700 mb-3">Built for</p>
               <ul className="space-y-3 text-base text-ink/85">
                 <li className="flex gap-3">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-teal-700">✓</span>
                   Investors with a {s.horizon} horizon
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-teal-700">✓</span>
                   Looking to compound through full market cycles
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-teal-700">✓</span>
                   Comfortable with equity-market volatility
                 </li>
                 {isAif && (
                   <li className="flex gap-3">
-                    <span className="text-teal-600">✓</span>
+                    <span className="text-teal-700">✓</span>
                     Eligible AIF investors (min. ticket per SEBI AIF rules)
                   </li>
                 )}
               </ul>
             </div>
             <div className="bg-paper border border-ink/10 rounded-md p-7">
-              <p className="smallcaps text-sm text-ink/60 mb-3">Not for you if</p>
+              <p className="smallcaps text-sm text-ink/70 mb-3">Not for you if</p>
               <ul className="space-y-3 text-base text-ink/75">
                 <li className="flex gap-3">
                   <span className="text-ink/40">✕</span>

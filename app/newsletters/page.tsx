@@ -31,7 +31,7 @@ function LetterRow({ letter }: { letter: Letter }) {
           <>
             <div className="absolute inset-0 bg-grid opacity-60" />
             <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-gold-200/60 blur-2xl transition-colors group-hover:bg-teal-300/60" />
-            <div className="absolute left-3.5 top-3.5 h-px w-7 bg-teal-700/30 transition-all group-hover:w-10 group-hover:bg-teal-600" />
+            <div className="absolute left-3.5 top-3.5 h-px w-7 bg-teal-700/30 transition-all group-hover:w-10 group-hover:bg-teal-700" />
             <div className="relative flex h-full flex-col items-center justify-center p-3.5 text-center">
               <p className="font-display text-3xl lg:text-4xl leading-none tracking-tight text-teal-800">
                 {letter.monthShort}
@@ -49,18 +49,18 @@ function LetterRow({ letter }: { letter: Letter }) {
         <h3 className="font-display text-2xl lg:text-3xl tracking-tightish text-ink transition-colors group-hover:text-teal-700">
           {letter.title}
         </h3>
-        <p className="mt-2 smallcaps font-medium text-teal-600 text-sm tracking-wide">
+        <p className="mt-2 smallcaps font-medium text-teal-700 text-sm tracking-wide">
           {letter.monthLong} {letter.year}
         </p>
-        <p className="mt-2 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/65 line-clamp-2">
+        <p className="mt-2 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/70 line-clamp-2">
           {letter.blurb}
         </p>
       </div>
 
       {/* Action */}
-      <div className="hidden shrink-0 items-center gap-3 self-center pr-1 text-teal-600 sm:flex">
+      <div className="hidden shrink-0 items-center gap-3 self-center pr-1 text-teal-700 sm:flex">
         <span className="hidden font-medium lg:inline">Read letter</span>
-        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 transition-colors group-hover:border-teal-600 group-hover:bg-teal-600 group-hover:text-cream">
+        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 transition-colors group-hover:border-teal-600 group-hover:bg-teal-700 group-hover:text-cream">
           →
         </span>
       </div>
@@ -78,7 +78,7 @@ export default async function NewslettersPage() {
         <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[28rem] h-[28rem] rounded-full bg-teal-100/50 blur-3xl pointer-events-none" />
         <div className="relative max-w-container mx-auto px-6 lg:px-10 flex flex-col items-center text-center">
-          <p className="smallcaps text-lg text-teal-600 mb-6 flex items-center gap-3 font-medium">
+          <p className="smallcaps text-lg text-teal-700 mb-6 flex items-center gap-3 font-medium">
             <span className="inline-block w-8 h-px bg-teal-600/60" />
             Newsletters
             <span className="inline-block w-8 h-px bg-teal-600/60" />
@@ -110,7 +110,7 @@ export default async function NewslettersPage() {
                   <h2 className="font-display text-5xl lg:text-7xl tracking-tighter3 tabular text-ink">
                     {y}
                   </h2>
-                  <p className="text-sm text-ink/60 smallcaps tabular">
+                  <p className="text-sm text-ink/70 smallcaps tabular">
                     {yearLetters.length} letter{yearLetters.length > 1 ? "s" : ""}
                   </p>
                 </div>

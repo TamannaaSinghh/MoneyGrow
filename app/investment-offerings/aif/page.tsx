@@ -39,19 +39,19 @@ export default function AifPage() {
         meta={
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-6 max-w-3xl">
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Cap mix</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Cap mix</p>
               <p className="font-medium tabular">{s.marketCap}</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Horizon</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Horizon</p>
               <p className="font-medium tabular">{s.horizon}</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Benchmark</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Benchmark</p>
               <p className="font-medium">{s.benchmark}</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Category</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Category</p>
               <p className="font-medium">Cat-III AIF</p>
             </div>
           </div>
@@ -79,23 +79,23 @@ export default function AifPage() {
             <div className="lg:col-span-5">
               <dl className="space-y-5">
                 <div className="flex items-baseline justify-between border-b border-ink/15 pb-4">
-                  <dt className="smallcaps text-sm text-ink/60">Category</dt>
+                  <dt className="smallcaps text-sm text-ink/70">Category</dt>
                   <dd className="font-medium text-ink text-lg">Cat-III AIF</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-ink/15 pb-4">
-                  <dt className="smallcaps text-sm text-ink/60">Style</dt>
+                  <dt className="smallcaps text-sm text-ink/70">Style</dt>
                   <dd className="font-medium text-ink text-lg">Long-only equity</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-ink/15 pb-4">
-                  <dt className="smallcaps text-sm text-ink/60">Horizon</dt>
+                  <dt className="smallcaps text-sm text-ink/70">Horizon</dt>
                   <dd className="font-medium text-ink tabular text-lg">{s.horizon}</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-ink/15 pb-4">
-                  <dt className="smallcaps text-sm text-ink/60">Benchmark</dt>
+                  <dt className="smallcaps text-sm text-ink/70">Benchmark</dt>
                   <dd className="font-medium text-ink text-lg">{s.benchmark}</dd>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <dt className="smallcaps text-sm text-ink/60">Min. investment</dt>
+                  <dt className="smallcaps text-sm text-ink/70">Min. investment</dt>
                   <dd className="font-medium text-ink tabular text-lg">{s.terms?.minInvestment}</dd>
                 </div>
               </dl>
@@ -140,7 +140,7 @@ export default function AifPage() {
               },
             ].map((c) => (
               <div key={c.cap} className="bg-paper border border-ink/10 rounded-md p-7">
-                <p className="smallcaps text-sm text-teal-600 font-medium">{c.role}</p>
+                <p className="smallcaps text-sm text-teal-700 font-medium">{c.role}</p>
                 <h3 className="font-display text-2xl mt-2 tracking-tightish">{c.cap}</h3>
                 <p className="mt-3 text-base text-ink/70 leading-relaxed">{c.body}</p>
               </div>
@@ -190,19 +190,19 @@ export default function AifPage() {
         <dl className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7">
           {site.aifStructure.map((row) => (
             <div key={row.label} className="border-t border-ink/10 pt-4">
-              <dt className="smallcaps text-xs text-ink/50 mb-1.5">{row.label}</dt>
+              <dt className="smallcaps text-xs text-ink/70 mb-1.5">{row.label}</dt>
               <dd className="font-medium text-ink/85 leading-snug">{row.value}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-8 text-sm text-ink/55">
+        <p className="mt-8 text-sm text-ink/70">
           Detailed Private Placement Memorandum (PPM) available on request.
         </p>
       </Section>
 
       {/* Regulatory disclosures */}
       <Section id="disclosures" className="bg-mist border-y border-ink/10">
-        <p className="smallcaps text-base text-teal-600 font-medium">Regulatory</p>
+        <p className="smallcaps text-base text-teal-700 font-medium">Regulatory</p>
         <h2 className="font-display text-4xl lg:text-5xl mt-3 tracking-tighter2 leading-tight">
           AIF Regulatory{" "}
           <span className="italic font-light text-teal-700">Disclosures.</span>
@@ -212,7 +212,7 @@ export default function AifPage() {
           grievance redressal, annual compliance report and risk management
           policy — all kept current.
         </p>
-        <p className="mt-3 font-mono text-sm text-ink/55 tabular">
+        <p className="mt-3 font-mono text-sm text-ink/70 tabular">
           AIF SEBI Reg. No. {site.legal.sebiAif}
         </p>
 
@@ -233,7 +233,7 @@ export default function AifPage() {
                     <span className="font-medium text-ink text-base flex-1 min-w-0">
                       {d}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 shrink-0">
                       <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                       <span className="hidden sm:inline">Download</span>
                     </span>
@@ -244,15 +244,15 @@ export default function AifPage() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-ink/60 max-w-2xl leading-relaxed">
+        <p className="mt-8 text-sm text-ink/70 max-w-2xl leading-relaxed">
           Disclosure documents are kept up to date as per SEBI requirements. For
           investor grievances, please email{" "}
-          <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+          <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
             sales@moneygrowindia.com
           </a>{" "}
           or escalate through{" "}
           <a
-            className="text-teal-600 link-underline"
+            className="text-teal-700 link-underline"
             href="https://scores.gov.in"
             target="_blank"
             rel="noreferrer"
@@ -272,7 +272,7 @@ export default function AifPage() {
           </>
         }
         primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
-        secondary={{ label: "Download presentation", href: site.documents.marketingPresentation }}
+        secondary={{ label: "Marketing Presentation", href: site.documents.marketingPresentation }}
       />
     </>
   );

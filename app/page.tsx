@@ -34,13 +34,13 @@ export default async function Home() {
           <div className="lg:col-span-6">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-paper border border-ink/10 rounded-md p-6 hover:border-teal-600 transition">
-                <p className="font-mono text-sm text-teal-600 tabular">PMS</p>
+                <p className="font-mono text-sm text-teal-700 tabular">PMS</p>
                 <p className="mt-3 text-base text-ink/75 leading-relaxed">
                   SEBI-licensed Portfolio Management Service.
                 </p>
               </div>
               <div className="bg-paper border border-ink/10 rounded-md p-6 hover:border-gold-400 transition">
-                <p className="font-mono text-sm text-gold-500 tabular">AIF</p>
+                <p className="font-mono text-sm text-gold-600 tabular">AIF</p>
                 <p className="mt-3 text-base text-ink/75 leading-relaxed">
                   Investment Manager to MoneyGrow Alpha Fund I (Cat-III).
                 </p>
@@ -144,9 +144,9 @@ export default async function Home() {
           </div>
           <Link
             href="/newsletters"
-            className="shrink-0 text-base font-medium text-teal-600 link-underline"
+            className="shrink-0 text-base font-medium text-teal-700 link-underline"
           >
-            View all newsletters →
+            Newsletters <span aria-hidden>→</span>
           </Link>
         </div>
 

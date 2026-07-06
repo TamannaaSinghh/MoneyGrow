@@ -27,7 +27,7 @@ export function StrategyAccordion({
         className="w-full flex items-start justify-between gap-6 text-left px-6 lg:px-9 py-7 hover:bg-mist/40 transition"
       >
         <div>
-          <p className="smallcaps text-xs text-teal-600 font-medium mb-2">
+          <p className="smallcaps text-xs text-teal-700 font-medium mb-2">
             {s.category} · Strategy
           </p>
           <h2 className="font-display text-3xl lg:text-4xl tracking-tighter2 leading-tight">
@@ -38,15 +38,15 @@ export function StrategyAccordion({
           </p>
           <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
             <div>
-              <dt className="smallcaps text-[11px] text-ink/50">Cap mix</dt>
+              <dt className="smallcaps text-[11px] text-ink/70">Cap mix</dt>
               <dd className="font-medium tabular text-sm">{s.marketCap}</dd>
             </div>
             <div>
-              <dt className="smallcaps text-[11px] text-ink/50">Horizon</dt>
+              <dt className="smallcaps text-[11px] text-ink/70">Horizon</dt>
               <dd className="font-medium tabular text-sm">{s.horizon}</dd>
             </div>
             <div>
-              <dt className="smallcaps text-[11px] text-ink/50">Benchmark</dt>
+              <dt className="smallcaps text-[11px] text-ink/70">Benchmark</dt>
               <dd className="font-medium text-sm">{s.benchmark}</dd>
             </div>
           </dl>
@@ -55,7 +55,7 @@ export function StrategyAccordion({
           className={`shrink-0 grid place-items-center w-11 h-11 rounded-full border transition-all ${
             open
               ? "rotate-180 bg-teal-50 border-teal-200 text-teal-700"
-              : "border-ink/15 text-ink/60"
+              : "border-ink/15 text-ink/70"
           }`}
           aria-hidden
         >
@@ -122,7 +122,7 @@ export function StrategyAccordion({
                     key={t}
                     className="border border-ink/10 rounded-md px-5 py-4 text-base flex items-center gap-3 bg-mist/40"
                   >
-                    <span className="font-mono text-sm text-teal-600 tabular">→</span>
+                    <span className="font-mono text-sm text-teal-700 tabular">→</span>
                     {t}
                   </li>
                 ))}

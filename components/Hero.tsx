@@ -49,7 +49,7 @@ export async function Hero() {
                     <p className="font-display text-3xl tabular text-teal-700 leading-none whitespace-nowrap">
                       {m.value}
                     </p>
-                    <p className="text-sm text-ink/65 mt-1.5 smallcaps">{m.label}</p>
+                    <p className="text-sm text-ink/70 mt-1.5 smallcaps">{m.label}</p>
                   </div>
                 ))}
               </div>

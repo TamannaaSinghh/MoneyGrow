@@ -20,15 +20,15 @@ export function FeesTerms({ strategy }: { strategy: Strategy }) {
 
         <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-5 max-w-md">
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-1.5">Minimum investment</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-1.5">Minimum investment</dt>
             <dd className="font-medium tabular">{t.minInvestment}</dd>
           </div>
           <div>
-            <dt className="smallcaps text-xs text-ink/50 mb-1.5">Lock-in</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-1.5">Lock-in</dt>
             <dd className="font-medium tabular">{t.lockIn}</dd>
           </div>
           <div className="col-span-2">
-            <dt className="smallcaps text-xs text-ink/50 mb-1.5">Exit load</dt>
+            <dt className="smallcaps text-xs text-ink/70 mb-1.5">Exit load</dt>
             <dd className="font-medium">{t.exitLoad}</dd>
           </div>
         </dl>
@@ -38,7 +38,7 @@ export function FeesTerms({ strategy }: { strategy: Strategy }) {
         <div className="border border-ink/10 rounded-md overflow-hidden bg-paper">
           <table className="w-full text-base">
             <thead>
-              <tr className="border-b border-ink/10 text-left text-ink/55 text-xs smallcaps">
+              <tr className="border-b border-ink/10 text-left text-ink/70 text-xs smallcaps">
                 <th className="px-5 py-3 font-medium">Fee option</th>
                 <th className="px-5 py-3 font-medium">Fixed fee</th>
                 <th className="px-5 py-3 font-medium">Hurdle</th>
@@ -51,12 +51,12 @@ export function FeesTerms({ strategy }: { strategy: Strategy }) {
                   <td className="px-5 py-4 text-ink font-medium">{f.label}</td>
                   <td className="px-5 py-4 text-ink/80 tabular">{f.fixedFee}</td>
                   <td className="px-5 py-4 text-ink/80 tabular">{f.hurdle}</td>
-                  <td className="px-5 py-4 text-right text-teal-600 font-medium tabular">{f.performanceFee}</td>
+                  <td className="px-5 py-4 text-right text-teal-700 font-medium tabular">{f.performanceFee}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p className="px-5 py-3 text-sm text-ink/60 border-t border-ink/10 leading-relaxed">
+          <p className="px-5 py-3 text-sm text-ink/70 border-t border-ink/10 leading-relaxed">
             Plus statutory GST and standard custody, fund-accounting, audit and
             account-opening charges at actuals. The applicable schedule is confirmed
             in your client agreement.

@@ -41,22 +41,22 @@ export function LetterRow({ letter }: { letter: Letter }) {
       {/* Text */}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-3 text-xs">
-          <span className="smallcaps font-medium text-teal-600">Reflections</span>
+          <span className="smallcaps font-medium text-teal-700">Reflections</span>
           <span className="h-1 w-1 rounded-full bg-ink/20" />
-          <span className="font-mono tabular text-ink/55">{letter.dateLabel}</span>
+          <span className="font-mono tabular text-ink/70">{letter.dateLabel}</span>
         </div>
         <h3 className="mt-2 font-display text-2xl lg:text-3xl tracking-tightish text-ink transition-colors group-hover:text-teal-700">
           {letter.title}
         </h3>
-        <p className="mt-2 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/65 line-clamp-2">
+        <p className="mt-2 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/70 line-clamp-2">
           {letter.blurb}
         </p>
       </div>
 
       {/* Action */}
-      <div className="hidden shrink-0 items-center gap-3 self-center pr-1 text-teal-600 sm:flex">
+      <div className="hidden shrink-0 items-center gap-3 self-center pr-1 text-teal-700 sm:flex">
         <span className="hidden font-medium lg:inline">Read letter</span>
-        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 transition-colors group-hover:border-teal-600 group-hover:bg-teal-600 group-hover:text-cream">
+        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/15 transition-colors group-hover:border-teal-600 group-hover:bg-teal-700 group-hover:text-cream">
           →
         </span>
       </div>

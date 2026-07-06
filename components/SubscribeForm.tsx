@@ -49,7 +49,7 @@ export function SubscribeForm() {
     <div className="w-full max-w-md">
       <form className="flex w-full gap-2.5" onSubmit={onSubmit} noValidate>
         <label htmlFor="footer-email" className="sr-only">
-          Email
+          Email address
         </label>
         <input
           id="footer-email"
@@ -65,7 +65,7 @@ export function SubscribeForm() {
           }}
           placeholder="you@example.com"
           aria-invalid={status === "error"}
-          className="flex-1 bg-paper border border-ink/15 rounded-md px-4 py-3 text-base text-ink placeholder:text-ink/40 shadow-sm transition-colors focus:outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 disabled:opacity-60"
+          className="flex-1 bg-paper border border-ink/60 rounded-md px-4 py-3 text-base text-ink placeholder:text-ink/55 shadow-sm transition-colors focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700/40 disabled:opacity-60"
         />
         <button
           type="submit"

@@ -18,7 +18,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="smallcaps text-lg text-teal-600 mb-4 flex items-center gap-3 font-medium">
+    <p className="smallcaps text-lg text-teal-700 mb-4 flex items-center gap-3 font-medium">
       <span className="inline-block w-8 h-px bg-teal-600/60" />
       {children}
     </p>

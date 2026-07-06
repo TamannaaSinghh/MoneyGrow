@@ -37,19 +37,19 @@ export default async function PmsPage() {
         meta={
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-6 max-w-3xl">
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Strategies</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Strategies</p>
               <p className="font-medium">Large · Small Midcap</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Framework</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Framework</p>
               <p className="font-medium tabular">4P</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">Min. investment</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">Min. investment</p>
               <p className="font-medium tabular">₹50 lakhs</p>
             </div>
             <div>
-              <p className="smallcaps text-xs text-ink/50 mb-2">SEBI Reg. No.</p>
+              <p className="smallcaps text-xs text-ink/70 mb-2">SEBI Reg. No.</p>
               <p className="font-medium tabular">{site.legal.sebiPms}</p>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default async function PmsPage() {
 
       {/* Regulatory disclosures */}
       <Section id="disclosures" className="bg-mist border-y border-ink/10">
-        <p className="smallcaps text-base text-teal-600 font-medium">Regulatory</p>
+        <p className="smallcaps text-base text-teal-700 font-medium">Regulatory</p>
         <h2 className="font-display text-4xl lg:text-5xl mt-3 tracking-tighter2 leading-tight">
           PMS Regulatory{" "}
           <span className="italic font-light text-teal-700">Disclosures.</span>
@@ -72,7 +72,7 @@ export default async function PmsPage() {
           SEBI-mandated disclosure documents, investor charter, complaints
           statement, investor education, and grievance policy — kept current.
         </p>
-        <p className="mt-3 font-mono text-sm text-ink/55 tabular">
+        <p className="mt-3 font-mono text-sm text-ink/70 tabular">
           PMS SEBI Reg. No. {site.legal.sebiPms}
         </p>
 
@@ -93,7 +93,7 @@ export default async function PmsPage() {
                       <span className="font-medium text-ink text-base flex-1 min-w-0">
                         {d.label}
                       </span>
-                      <span className="text-sm font-medium text-ink/50 shrink-0">
+                      <span className="text-sm font-medium text-ink/70 shrink-0">
                         Under Preparation
                       </span>
                     </div>
@@ -110,7 +110,7 @@ export default async function PmsPage() {
                     <span className="font-medium text-ink text-base flex-1 min-w-0">
                       {d.label}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 shrink-0">
                       <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                       <span className="hidden sm:inline">Download</span>
                     </span>
@@ -121,15 +121,15 @@ export default async function PmsPage() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-ink/60 max-w-2xl leading-relaxed">
+        <p className="mt-8 text-sm text-ink/70 max-w-2xl leading-relaxed">
           Disclosure documents are kept up to date as per SEBI requirements. For
           investor grievances, please email{" "}
-          <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+          <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
             sales@moneygrowindia.com
           </a>{" "}
           or escalate through{" "}
           <a
-            className="text-teal-600 link-underline"
+            className="text-teal-700 link-underline"
             href="https://scores.gov.in"
             target="_blank"
             rel="noreferrer"
@@ -174,7 +174,7 @@ export default async function PmsPage() {
           </>
         }
         primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
-        secondary={{ label: "Download presentation", href: site.documents.marketingPresentation }}
+        secondary={{ label: "Marketing Presentation", href: site.documents.marketingPresentation }}
       />
     </>
   );

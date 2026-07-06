@@ -50,9 +50,9 @@ const WhatsAppIcon = (p: IconProps) => (
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-[15px] font-semibold uppercase tracking-[0.08em] text-teal-800 mb-5">
+    <h2 className="text-[15px] font-semibold uppercase tracking-[0.08em] text-teal-800 mb-5">
       {children}
-    </h3>
+    </h2>
   );
 }
 
@@ -65,9 +65,9 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-10 border-b border-ink/15">
           <div className="max-w-xl">
             <p className="text-sm font-semibold uppercase tracking-[0.08em] text-teal-800">Newsletter</p>
-            <h3 className="font-display text-3xl lg:text-4xl mt-3 leading-tight text-ink sm:whitespace-nowrap">
+            <h2 className="font-display text-3xl lg:text-4xl mt-3 leading-tight text-ink sm:whitespace-nowrap">
               Subscribe to our email.
-            </h3>
+            </h2>
             <p className="text-[15px] text-ink/70 mt-3">
               Reflections, monthly — straight to your inbox. Unsubscribe any time.
             </p>
@@ -141,7 +141,7 @@ export function Footer() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-ink/15 text-[15px] text-ink/85 hover:border-teal-600 hover:text-ink transition"
               >
-                <WhatsAppIcon className="w-4 h-4 text-teal-600" />
+                <WhatsAppIcon className="w-4 h-4 text-teal-700" />
                 WhatsApp
               </a>
               <a
@@ -159,15 +159,15 @@ export function Footer() {
             <FooterHeading>Registration</FooterHeading>
             <dl className="space-y-4 text-[15px]">
               <div>
-                <dt className="text-ink/55">CIN</dt>
+                <dt className="text-ink/70">CIN</dt>
                 <dd className="font-mono text-ink/85 mt-0.5 break-all">{site.legal.cin}</dd>
               </div>
               <div>
-                <dt className="text-ink/55">PMS SEBI Reg. No.</dt>
+                <dt className="text-ink/70">PMS SEBI Reg. No.</dt>
                 <dd className="font-mono text-ink/85 mt-0.5 break-all">{site.legal.sebiPms}</dd>
               </div>
               <div>
-                <dt className="text-ink/55">AIF SEBI Reg. No.</dt>
+                <dt className="text-ink/70">AIF SEBI Reg. No.</dt>
                 <dd className="font-mono text-ink/85 mt-0.5 break-all">{site.legal.sebiAif}</dd>
               </div>
             </dl>
@@ -175,7 +175,7 @@ export function Footer() {
         </div>
 
         {/* Risk disclaimer */}
-        <div className="mt-12 pt-6 border-t border-ink/15 flex flex-col items-center text-center gap-4 text-sm text-ink/60 leading-relaxed">
+        <div className="mt-12 pt-6 border-t border-ink/15 flex flex-col items-center text-center gap-4 text-sm text-ink/70 leading-relaxed">
           <p className="max-w-3xl">
             Investments in securities are subject to market risks. Past performance is not indicative of future returns.
             Read all scheme-related and offer documents carefully before investing. The information on this website is for

@@ -61,7 +61,7 @@ export function DisclosuresTabs() {
             )}
           </button>
         ))}
-        <p className="ml-auto text-xs text-ink/50 hidden lg:block">
+        <p className="ml-auto text-xs text-ink/70 hidden lg:block">
           Last reviewed · {new Date().toLocaleDateString("en-IN", { month: "long", year: "numeric" })}
         </p>
       </div>
@@ -84,10 +84,10 @@ export function DisclosuresTabs() {
               <span className="inline-block w-2 h-2 rotate-45 bg-teal-600/70" aria-hidden />
             </span>
             <span className="col-span-7 lg:col-span-8 font-medium text-ink">{d.title}</span>
-            <span className="col-span-3 lg:col-span-2 text-xs text-ink/50 tabular hidden lg:block">
+            <span className="col-span-3 lg:col-span-2 text-xs text-ink/70 tabular hidden lg:block">
               {d.label}
             </span>
-            <span className="col-span-1 text-right text-teal-600 group-hover:translate-x-1 transition-transform">
+            <span className="col-span-1 text-right text-teal-700 group-hover:translate-x-1 transition-transform">
               ↓
             </span>
           </a>

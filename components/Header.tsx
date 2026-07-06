@@ -47,7 +47,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`group relative text-base font-medium transition hover:text-teal-600 ${
+                className={`group relative text-base font-medium transition hover:text-teal-700 ${
                   active ? "text-teal-700" : "text-ink/80"
                 }`}
               >
@@ -120,7 +120,7 @@ export function Header() {
                   rel="noreferrer"
                   aria-label={label}
                   title={label}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-ink/80 bg-mist hover:text-teal-600 transition"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-ink/80 bg-mist hover:text-teal-700 transition"
                 >
                   <Icon className="w-5 h-5" />
                   <span className="text-sm font-medium">{short}</span>

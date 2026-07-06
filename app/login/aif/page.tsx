@@ -38,9 +38,9 @@ export default function AifLoginPage() {
             </a>
           </div>
 
-          <p className="mt-10 text-sm text-ink/60 max-w-2xl leading-relaxed">
+          <p className="mt-10 text-sm text-ink/70 max-w-2xl leading-relaxed">
             Trouble signing in? Email{" "}
-            <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+            <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
               sales@moneygrowindia.com
             </a>{" "}
             or call <span className="tabular">{site.contact.phone}</span>.

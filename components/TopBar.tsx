@@ -15,7 +15,7 @@ const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function TopBar() {
   return (
-    <div className="bg-[#1D8F54] text-white">
+    <div role="region" aria-label="Contact information" className="bg-teal-700 text-white">
       <div className="max-w-container mx-auto px-6 lg:px-10 min-h-9 py-1.5 flex flex-wrap items-center justify-center lg:justify-end gap-x-5 gap-y-1 text-xs sm:text-sm">
         <a
           href={site.contact.whatsappHref}

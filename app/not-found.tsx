@@ -4,11 +4,11 @@ export default function NotFound() {
   return (
     <section className="min-h-[70vh] grid place-items-center px-6">
       <div className="text-center max-w-md">
-        <p className="font-mono text-xs text-teal-600 tabular smallcaps">/404</p>
+        <p className="font-mono text-xs text-teal-700 tabular smallcaps">/404</p>
         <h1 className="font-display text-7xl lg:text-8xl tracking-tighter3 mt-4">
           Not <span className="italic font-light text-teal-700">found.</span>
         </h1>
-        <p className="mt-6 text-ink/60">
+        <p className="mt-6 text-ink/70">
           The page you&rsquo;re looking for doesn&rsquo;t exist or has moved.
         </p>
         <Link

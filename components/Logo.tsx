@@ -6,7 +6,7 @@ export function Logo() {
     <Link href="/" className="flex items-center group" aria-label="MoneyGrow India home">
       <Image
         src="/logo.png"
-        alt="MoneyGrow"
+        alt=""
         width={1816}
         height={425}
         priority

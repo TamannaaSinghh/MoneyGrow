@@ -24,7 +24,7 @@ export default function DisclosuresPage() {
             href="/investment-offerings/pms#disclosures"
             className="group block bg-paper border border-ink/10 rounded-md p-10 lg:p-12 hover:border-teal-600 hover:shadow-soft transition relative overflow-hidden"
           >
-            <p className="font-mono text-sm text-teal-600 tabular">/PMS</p>
+            <p className="font-mono text-sm text-teal-700 tabular">/PMS</p>
             <h2 className="font-display text-3xl lg:text-4xl mt-3 tracking-tighter2 leading-tight">
               PMS Regulatory Disclosures
             </h2>
@@ -32,7 +32,7 @@ export default function DisclosuresPage() {
               Disclosure document, quarterly disclosure, investor charter, statement
               of complaints, code of conduct, and grievance redressal policy.
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 text-base font-medium text-teal-600 group-hover:translate-x-1 transition-transform">
+            <span className="mt-8 inline-flex items-center gap-2 text-base font-medium text-teal-700 group-hover:translate-x-1 transition-transform">
               View PMS disclosures →
             </span>
             <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-teal-50 group-hover:bg-gold-100/60 transition pointer-events-none" />
@@ -57,15 +57,15 @@ export default function DisclosuresPage() {
           </Link>
         </div>
 
-        <p className="mt-12 text-sm text-ink/60 max-w-2xl leading-relaxed">
+        <p className="mt-12 text-sm text-ink/70 max-w-2xl leading-relaxed">
           Disclosure documents are kept up to date as per SEBI requirements. For
           investor grievances, please email{" "}
-          <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+          <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
             sales@moneygrowindia.com
           </a>{" "}
           or escalate through{" "}
           <a
-            className="text-teal-600 link-underline"
+            className="text-teal-700 link-underline"
             href="https://scores.gov.in"
             target="_blank"
             rel="noreferrer"

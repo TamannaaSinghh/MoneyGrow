@@ -36,7 +36,7 @@ export default function InvestmentOfferingsPage() {
           </div>
           <Link
             href="/investment-offerings/pms"
-            className="text-base font-medium text-teal-600 link-underline self-start"
+            className="text-base font-medium text-teal-700 link-underline self-start"
           >
             Read the full PMS page →
           </Link>
@@ -58,7 +58,7 @@ export default function InvestmentOfferingsPage() {
           </div>
           <Link
             href="/investment-offerings/aif"
-            className="text-base font-medium text-teal-600 link-underline self-start"
+            className="text-base font-medium text-teal-700 link-underline self-start"
           >
             Read the full AIF page →
           </Link>
@@ -73,7 +73,7 @@ export default function InvestmentOfferingsPage() {
             <div className="relative grid lg:grid-cols-12 gap-8">
               <div className="lg:col-span-2">
                 <p className="font-mono text-sm text-gold-600 tabular">/ AIF</p>
-                <p className="smallcaps text-xs text-ink/50 mt-2">Cat-III</p>
+                <p className="smallcaps text-xs text-ink/70 mt-2">Cat-III</p>
               </div>
               <div className="lg:col-span-7">
                 <h3 className="font-display text-3xl lg:text-5xl tracking-tighter2 leading-tight">
@@ -84,11 +84,11 @@ export default function InvestmentOfferingsPage() {
               <div className="lg:col-span-3 flex flex-col justify-end gap-4">
                 <dl className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <dt className="text-ink/50 mb-1 smallcaps text-xs">Cap mix</dt>
+                    <dt className="text-ink/70 mb-1 smallcaps text-xs">Cap mix</dt>
                     <dd className="text-ink/85 font-medium">Dynamic</dd>
                   </div>
                   <div>
-                    <dt className="text-ink/50 mb-1 smallcaps text-xs">Horizon</dt>
+                    <dt className="text-ink/70 mb-1 smallcaps text-xs">Horizon</dt>
                     <dd className="text-ink/85 font-medium tabular">{s.horizon}</dd>
                   </div>
                 </dl>

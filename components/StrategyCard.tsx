@@ -6,7 +6,7 @@ const Arrow = () => (
     width="20"
     height="14"
     viewBox="0 0 20 14"
-    className="text-teal-600 group-hover:translate-x-1 transition-transform"
+    className="text-teal-700 group-hover:translate-x-1 transition-transform"
     aria-hidden
   >
     <path d="M1 7H19M19 7L13 1M19 7L13 13" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -31,11 +31,11 @@ export function StrategyCard({
   const meta = (
     <dl className="grid grid-cols-2 gap-4 text-sm">
       <div>
-        <dt className="text-ink/50 mb-1 smallcaps text-xs">Cap mix</dt>
+        <dt className="text-ink/70 mb-1 smallcaps text-xs">Cap mix</dt>
         <dd className="text-ink/85 font-medium">{strategy.marketCap}</dd>
       </div>
       <div>
-        <dt className="text-ink/50 mb-1 smallcaps text-xs">Horizon</dt>
+        <dt className="text-ink/70 mb-1 smallcaps text-xs">Horizon</dt>
         <dd className="text-ink/85 font-medium tabular">{strategy.horizon}</dd>
       </div>
     </dl>
@@ -43,7 +43,7 @@ export function StrategyCard({
 
   const cta = (
     <div className="flex items-center justify-between">
-      <span className="text-base font-medium text-teal-600 group-hover:translate-x-1 transition-transform">
+      <span className="text-base font-medium text-teal-700 group-hover:translate-x-1 transition-transform">
         View strategy
       </span>
       <Arrow />
@@ -59,8 +59,8 @@ export function StrategyCard({
         <div className="relative grid lg:grid-cols-12 gap-8 lg:gap-10 lg:items-center">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-4">
-              <span className="font-mono text-sm text-ink/50 tabular">/ {num}</span>
-              <span className="text-xs smallcaps text-teal-600 bg-teal-50 px-2.5 py-1 rounded">
+              <span className="font-mono text-sm text-ink/70 tabular">/ {num}</span>
+              <span className="text-xs smallcaps text-teal-700 bg-teal-50 px-2.5 py-1 rounded">
                 {strategy.category}
               </span>
             </div>
@@ -88,8 +88,8 @@ export function StrategyCard({
     >
       <div className="flex-1">
         <div className="flex items-start justify-between mb-8">
-          <span className="font-mono text-sm text-ink/50 tabular">/ {num}</span>
-          <span className="text-xs smallcaps text-teal-600 bg-teal-50 px-2.5 py-1 rounded">
+          <span className="font-mono text-sm text-ink/70 tabular">/ {num}</span>
+          <span className="text-xs smallcaps text-teal-700 bg-teal-50 px-2.5 py-1 rounded">
             {strategy.category}
           </span>
         </div>

@@ -49,7 +49,7 @@ export default function PrivacyPage() {
             <p>
               You can request access to, correction of, or deletion of your personal information at
               any time by writing to{" "}
-              <a className="text-teal-600 link-underline" href="mailto:sales@moneygrowindia.com">
+              <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
                 sales@moneygrowindia.com
               </a>
               .
