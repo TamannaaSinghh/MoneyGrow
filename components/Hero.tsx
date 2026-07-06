@@ -24,15 +24,15 @@ export async function Hero() {
                 href="/investment-offerings/pms"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-teal-700 text-cream rounded-md font-medium hover:bg-teal-800 transition group"
               >
-                Explore PMS
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                PMS
+                <span aria-hidden className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
               <Link
                 href="/investment-offerings/aif"
                 className="inline-flex items-center gap-2 px-6 py-3.5 border border-teal-600/40 text-teal-700 rounded-md font-medium hover:bg-teal-50 hover:border-teal-600 transition group"
               >
-                Explore AIF
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                AIF
+                <span aria-hidden className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
           </div>

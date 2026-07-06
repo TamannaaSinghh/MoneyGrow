@@ -47,10 +47,11 @@ export function SubscribeForm() {
 
   return (
     <div className="w-full max-w-md">
-      <form className="flex w-full gap-2.5" onSubmit={onSubmit} noValidate>
-        <label htmlFor="footer-email" className="sr-only">
+      <form onSubmit={onSubmit} noValidate>
+        <label htmlFor="footer-email" className="block text-sm font-medium text-ink/80 mb-2">
           Email address
         </label>
+        <div className="flex w-full gap-2.5">
         <input
           id="footer-email"
           name="email"
@@ -88,6 +89,7 @@ export function SubscribeForm() {
             </>
           )}
         </button>
+        </div>
       </form>
 
       <p

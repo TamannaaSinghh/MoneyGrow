@@ -64,8 +64,7 @@ export function Footer() {
         {/* Subscribe band */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-10 border-b border-ink/15">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-teal-800">Newsletter</p>
-            <h2 className="font-display text-3xl lg:text-4xl mt-3 leading-tight text-ink sm:whitespace-nowrap">
+            <h2 className="font-display text-3xl lg:text-4xl leading-tight text-ink sm:whitespace-nowrap">
               Subscribe to our email.
             </h2>
             <p className="text-[15px] text-ink/70 mt-3">

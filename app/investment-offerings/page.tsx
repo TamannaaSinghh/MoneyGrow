@@ -132,7 +132,7 @@ export default function InvestmentOfferingsPage() {
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 bg-gold-400 text-ink rounded-md font-medium hover:bg-gold-300 transition"
             >
-              Open marketing presentation →
+              Marketing Presentation <span aria-hidden>→</span>
             </a>
           </div>
         </div>

@@ -16,6 +16,7 @@ function LetterRow({ letter }: { letter: Letter }) {
       href={letter.href}
       target="_blank"
       rel="noreferrer"
+      aria-label={`${letter.title} — ${letter.monthLong} ${letter.year}`}
       className="group flex items-center gap-5 sm:gap-7 lg:gap-9 py-6 border-b border-ink/10 transition-colors hover:bg-mist/70"
     >
       {/* Cover / image */}

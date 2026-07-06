@@ -114,20 +114,21 @@ export default async function Home() {
           href={site.documents.marketingPresentation}
           target="_blank"
           rel="noreferrer"
+          aria-label="Marketing Presentation"
           className="group grid lg:grid-cols-12 gap-10 items-center bg-[#D0DED2] border border-[#BCCFBF] text-ink rounded-md p-6 lg:p-10 hover:border-teal-600 transition relative overflow-hidden"
         >
           <div className="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-gold-400/15 blur-3xl pointer-events-none" />
           <div className="relative lg:col-span-8">
-            <p className="smallcaps text-base text-teal-700 font-medium">Marketing presentation</p>
+            <p className="smallcaps text-base text-teal-800 font-medium">Marketing presentation</p>
             <h3 className="font-display text-3xl lg:text-4xl mt-3 tracking-tighter2 leading-tight">
               <span className="sm:whitespace-nowrap">Strategies, performance, philosophy</span>
               <br />
-              <span className="italic font-light text-teal-700">in one deck.</span>
+              <span className="italic font-light text-teal-800">in one deck.</span>
             </h3>
           </div>
           <div className="relative lg:col-span-4 lg:text-right">
-            <span className="inline-flex items-center gap-2 text-base font-medium text-teal-700 group-hover:translate-x-1 transition-transform">
-              Open presentation →
+            <span className="inline-flex items-center gap-2 text-base font-medium text-teal-800 group-hover:translate-x-1 transition-transform">
+              Open presentation <span aria-hidden>→</span>
             </span>
           </div>
         </a>
