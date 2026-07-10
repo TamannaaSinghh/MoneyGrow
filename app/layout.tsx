@@ -5,6 +5,7 @@ import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AppShell } from "@/components/AppShell";
+import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -47,11 +48,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const marketingPresentation = await getMarketingPresentation();
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="font-sans antialiased min-h-screen flex flex-col">
@@ -59,10 +61,10 @@ export default function RootLayout({
           header={
             <div className="sticky top-0 z-40">
               <TopBar />
-              <Header />
+              <Header marketingPresentation={marketingPresentation} />
             </div>
           }
-          footer={<Footer />}
+          footer={<Footer marketingPresentation={marketingPresentation} />}
         >
           {children}
         </AppShell>

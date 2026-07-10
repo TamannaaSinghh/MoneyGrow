@@ -7,6 +7,7 @@ import { DownloadIcon } from "@/components/DownloadIcon";
 import { getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
 import { getAifDisclosures } from "@/sanity/lib/aifDisclosures";
+import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
 
 export const metadata = { title: "AIF · MoneyGrow Alpha Fund I" };
 
@@ -18,6 +19,7 @@ export default async function AifPage() {
     (a, b) =>
       (a.status === "pending" ? 1 : 0) - (b.status === "pending" ? 1 : 0)
   );
+  const marketingPresentation = await getMarketingPresentation();
   const aifMid = Math.ceil(aifDisclosures.length / 2);
   const aifColumns = [
     aifDisclosures.slice(0, aifMid),
@@ -294,7 +296,7 @@ export default async function AifPage() {
           </>
         }
         primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
-        secondary={{ label: "Marketing Presentation", href: site.documents.marketingPresentation }}
+        secondary={{ label: "Marketing Presentation", href: marketingPresentation }}
       />
     </>
   );

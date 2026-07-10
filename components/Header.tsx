@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./Logo";
-import { nav, site } from "@/lib/site";
+import { nav } from "@/lib/site";
 
 function useIsActive() {
   const pathname = usePathname();
@@ -21,18 +21,22 @@ const PresentationIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const iconLinks = [
-  {
-    label: "Marketing Presentation",
-    short: "Marketing Presentation",
-    href: site.documents.marketingPresentation,
-    Icon: PresentationIcon,
-  },
-];
-
-export function Header() {
+export function Header({
+  marketingPresentation,
+}: {
+  marketingPresentation: string;
+}) {
   const [open, setOpen] = useState(false);
   const isActive = useIsActive();
+
+  const iconLinks = [
+    {
+      label: "Marketing Presentation",
+      short: "Marketing Presentation",
+      href: marketingPresentation,
+      Icon: PresentationIcon,
+    },
+  ];
 
   return (
     <header className="bg-cream border-b border-ink/10">

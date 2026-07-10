@@ -12,6 +12,14 @@ export const structure: StructureResolver = (S) =>
         .title("Hero — Info card")
         .id("atAGlance")
         .child(S.document().schemaType("atAGlance").documentId("atAGlance")),
+      S.listItem()
+        .title("Marketing Presentation")
+        .id("marketingPresentation")
+        .child(
+          S.document()
+            .schemaType("marketingPresentation")
+            .documentId("marketingPresentation")
+        ),
       S.divider(),
       S.documentTypeListItem("teamMember").title("Team members"),
       S.documentTypeListItem("pmsDisclosure").title("PMS Regulatory Disclosures"),

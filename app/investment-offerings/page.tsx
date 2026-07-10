@@ -4,14 +4,15 @@ import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { StrategyCard } from "@/components/StrategyCard";
 import { CTAStrip } from "@/components/CTAStrip";
 import { strategies } from "@/lib/strategies";
-import { site } from "@/lib/site";
+import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
 
 export const metadata = { title: "Investment Offerings" };
 
 const pms = strategies.filter((s) => s.category === "PMS");
 const aif = strategies.filter((s) => s.category === "AIF");
 
-export default function InvestmentOfferingsPage() {
+export default async function InvestmentOfferingsPage() {
+  const marketingPresentation = await getMarketingPresentation();
   return (
     <>
       <PageHeader
@@ -127,7 +128,7 @@ export default function InvestmentOfferingsPage() {
           </div>
           <div className="lg:col-span-5 lg:text-right">
             <a
-              href={site.documents.marketingPresentation}
+              href={marketingPresentation}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 bg-gold-400 text-ink rounded-md font-medium hover:bg-gold-300 transition"

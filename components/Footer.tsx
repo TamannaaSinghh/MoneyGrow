@@ -56,7 +56,11 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Footer() {
+export function Footer({
+  marketingPresentation,
+}: {
+  marketingPresentation: string;
+}) {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-[#D0DED2] text-ink/80 border-t border-[#BCCFBF] mt-4">
@@ -90,7 +94,7 @@ export function Footer() {
             <ul className="space-y-3.5 text-[15px]">
               <li><Link href="/investment-offerings/pms" className="link-underline hover:text-teal-700">PMS</Link></li>
               <li><Link href="/investment-offerings/aif" className="link-underline hover:text-teal-700">AIF</Link></li>
-              <li><a href={site.documents.marketingPresentation} target="_blank" rel="noreferrer" className="link-underline hover:text-teal-700">Marketing Presentation</a></li>
+              <li><a href={marketingPresentation} target="_blank" rel="noreferrer" className="link-underline hover:text-teal-700">Marketing Presentation</a></li>
               <li><Link href="/newsletters" className="link-underline hover:text-teal-700">Newsletters</Link></li>
               <li><Link href="/#team" className="link-underline hover:text-teal-700">Team</Link></li>
             </ul>

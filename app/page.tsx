@@ -4,12 +4,13 @@ import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { TeamCard } from "@/components/TeamCard";
 import { LetterRow } from "@/components/LetterRow";
 import { getTeam } from "@/sanity/lib/team";
+import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
 import { letters } from "@/lib/newsletters";
-import { site } from "@/lib/site";
 
 export default async function Home() {
   const latest = letters[0];
   const team = await getTeam();
+  const marketingPresentation = await getMarketingPresentation();
   return (
     <>
       <Hero />
@@ -111,7 +112,7 @@ export default async function Home() {
       {/* Marketing presentation */}
       <Section>
         <a
-          href={site.documents.marketingPresentation}
+          href={marketingPresentation}
           target="_blank"
           rel="noreferrer"
           aria-label="Marketing Presentation"

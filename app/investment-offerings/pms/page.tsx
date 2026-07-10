@@ -6,6 +6,7 @@ import { StrategyInline } from "@/components/StrategyInline";
 import { strategies } from "@/lib/strategies";
 import { site } from "@/lib/site";
 import { getPmsDisclosures } from "@/sanity/lib/pmsDisclosures";
+import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
 
 export const metadata = { title: "PMS · Portfolio Management Services" };
 
@@ -16,6 +17,7 @@ export default async function PmsPage() {
     (a, b) =>
       (a.status === "pending" ? 1 : 0) - (b.status === "pending" ? 1 : 0)
   );
+  const marketingPresentation = await getMarketingPresentation();
   const pmsMid = Math.ceil(pmsDisclosures.length / 2);
   const pmsColumns = [
     pmsDisclosures.slice(0, pmsMid),
@@ -174,7 +176,7 @@ export default async function PmsPage() {
           </>
         }
         primary={{ label: `WhatsApp ${site.contact.phone}`, href: site.contact.whatsappHref }}
-        secondary={{ label: "Marketing Presentation", href: site.documents.marketingPresentation }}
+        secondary={{ label: "Marketing Presentation", href: marketingPresentation }}
       />
     </>
   );

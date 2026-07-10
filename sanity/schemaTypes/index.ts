@@ -3,10 +3,12 @@ import { atAGlance } from "./atAGlance";
 import { teamMember } from "./teamMember";
 import { pmsDisclosure } from "./pmsDisclosure";
 import { aifDisclosure } from "./aifDisclosure";
+import { marketingPresentation } from "./marketingPresentation";
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   atAGlance,
   teamMember,
   pmsDisclosure,
   aifDisclosure,
+  marketingPresentation,
 ];
