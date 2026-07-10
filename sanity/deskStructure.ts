@@ -15,4 +15,5 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       S.documentTypeListItem("teamMember").title("Team members"),
       S.documentTypeListItem("pmsDisclosure").title("PMS Regulatory Disclosures"),
+      S.documentTypeListItem("aifDisclosure").title("AIF Regulatory Disclosures"),
     ]);

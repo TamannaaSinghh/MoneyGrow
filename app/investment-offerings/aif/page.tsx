@@ -6,24 +6,23 @@ import { CTAStrip } from "@/components/CTAStrip";
 import { DownloadIcon } from "@/components/DownloadIcon";
 import { getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
+import { getAifDisclosures } from "@/sanity/lib/aifDisclosures";
 
 export const metadata = { title: "AIF · MoneyGrow Alpha Fund I" };
 
-const aifDisclosures = [
-  "AIF Private Placement Memorandum",
-  "Investor Charter — AIF",
-  "Statement of Complaints — AIF",
-  "Grievance Redressal Policy — AIF",
-  "Annual Compliance Report — AIF",
-  "Risk Management Policy",
-];
-
-const aifMid = Math.ceil(aifDisclosures.length / 2);
-const aifColumns = [aifDisclosures.slice(0, aifMid), aifDisclosures.slice(aifMid)];
-
-export default function AifPage() {
+export default async function AifPage() {
   const s = getStrategy("alpha-fund");
   if (!s) return null;
+
+  const aifDisclosures = [...(await getAifDisclosures())].sort(
+    (a, b) =>
+      (a.status === "pending" ? 1 : 0) - (b.status === "pending" ? 1 : 0)
+  );
+  const aifMid = Math.ceil(aifDisclosures.length / 2);
+  const aifColumns = [
+    aifDisclosures.slice(0, aifMid),
+    aifDisclosures.slice(aifMid),
+  ];
 
   return (
     <>
@@ -224,14 +223,31 @@ export default function AifPage() {
               className="border border-ink/10 rounded-md overflow-hidden bg-paper"
             >
               {col.map((d) => {
+                if (d.status === "pending") {
+                  return (
+                    <div
+                      key={d.label}
+                      className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0"
+                    >
+                      <span className="font-medium text-ink text-base flex-1 min-w-0">
+                        {d.label}
+                      </span>
+                      <span className="text-sm font-medium text-ink/70 shrink-0">
+                        Under Preparation
+                      </span>
+                    </div>
+                  );
+                }
                 return (
                   <a
-                    key={d}
-                    href="#"
+                    key={d.label}
+                    href={d.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 px-5 py-4 border-b border-ink/5 last:border-0 hover:bg-mist/60 transition group"
                   >
                     <span className="font-medium text-ink text-base flex-1 min-w-0">
-                      {d}
+                      {d.label}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 shrink-0">
                       <DownloadIcon className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
