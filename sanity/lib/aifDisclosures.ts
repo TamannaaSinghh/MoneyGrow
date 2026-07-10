@@ -7,15 +7,11 @@ export type Disclosure = {
   status: "available" | "pending";
 };
 
-/** Used when Sanity isn't configured yet, errors, or has no documents. */
-export const DEFAULT_DISCLOSURES: Disclosure[] = [
-  { label: "AIF Private Placement Memorandum", status: "pending", href: "" },
-  { label: "Investor Charter — AIF", status: "pending", href: "" },
-  { label: "Statement of Complaints — AIF", status: "pending", href: "" },
-  { label: "Grievance Redressal Policy — AIF", status: "pending", href: "" },
-  { label: "Annual Compliance Report — AIF", status: "pending", href: "" },
-  { label: "Risk Management Policy", status: "pending", href: "" },
-];
+/**
+ * Used when Sanity isn't configured yet, errors, or has no documents.
+ * Empty by design — AIF disclosures are managed entirely in Sanity Studio.
+ */
+export const DEFAULT_DISCLOSURES: Disclosure[] = [];
 
 const DISCLOSURES_QUERY = `*[_type == "aifDisclosure"] | order(order asc, title asc){
   "label": title,

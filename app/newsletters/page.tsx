@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Section } from "@/components/Section";
-import { CTAStrip } from "@/components/CTAStrip";
+import { SubscribeForm } from "@/components/SubscribeForm";
 import { groupByYear, type Letter } from "@/lib/newsletters";
 import { getNewsletters } from "@/lib/wp";
 
@@ -127,17 +127,30 @@ export default async function NewslettersPage() {
         </div>
       </Section>
 
-      <CTAStrip
-        title={
-          <>
-            Don&rsquo;t miss the next letter.
-            <br />
-            <span className="italic font-light text-gold-300">Subscribe.</span>
-          </>
-        }
-        body="Reflections — straight to your inbox once a month. Unsubscribe anytime."
-        primary={{ label: "Subscribe", href: "#footer-email" }}
-      />
+      <section className="py-6 lg:py-8">
+        <div className="max-w-container mx-auto px-6 lg:px-10">
+          <div className="relative bg-teal-700 text-cream rounded-md overflow-hidden p-8 lg:p-12 grain">
+            <div className="absolute inset-0 bg-grid-dark opacity-40 pointer-events-none" />
+            <div className="absolute -top-32 -right-20 w-[28rem] h-[28rem] rounded-full bg-gold-400/20 blur-3xl pointer-events-none" />
+
+            <div className="relative grid lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-7">
+                <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tighter2">
+                  Don&rsquo;t miss the next letter.
+                  <br />
+                  <span className="italic font-light text-gold-300">Subscribe.</span>
+                </h2>
+                <p className="mt-6 text-cream/80 max-w-xl text-base lg:text-lg">
+                  Reflections — straight to your inbox once a month. Unsubscribe anytime.
+                </p>
+              </div>
+              <div className="lg:col-span-5 w-full lg:justify-self-end">
+                <SubscribeForm variant="onDark" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

@@ -44,7 +44,6 @@ export const DEFAULT_DISCLOSURES: Disclosure[] = [
     status: "available",
     href: "https://moneygrowindia.com/wp-content/uploads/2024/12/SEBI-Updated-Master-Circular-on-Online-Dispute-Resolution.pdf",
   },
-  { label: "Conflict of Interest Policy", status: "pending", href: "" },
 ];
 
 const DISCLOSURES_QUERY = `*[_type == "pmsDisclosure"] | order(order asc, title asc){

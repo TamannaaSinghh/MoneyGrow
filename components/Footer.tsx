@@ -65,7 +65,7 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 pb-10 border-b border-ink/15">
           <div className="max-w-xl">
             <h2 className="font-display text-3xl lg:text-4xl leading-tight text-ink sm:whitespace-nowrap">
-              Subscribe to our email.
+              Subscribe to our newsletter.
             </h2>
             <p className="text-[15px] text-ink/70 mt-3">
               Reflections, monthly — straight to your inbox. Unsubscribe any time.

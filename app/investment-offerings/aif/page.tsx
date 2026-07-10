@@ -216,6 +216,11 @@ export default async function AifPage() {
         </p>
 
         {/* Disclosure documents */}
+        {aifDisclosures.length === 0 ? (
+          <div className="mt-10 border border-ink/10 rounded-md bg-paper px-6 py-8 text-base text-ink/70">
+            Disclosure documents will be published here shortly.
+          </div>
+        ) : (
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {aifColumns.map((col, colIdx) => (
             <div
@@ -259,6 +264,7 @@ export default async function AifPage() {
             </div>
           ))}
         </div>
+        )}
 
         <p className="mt-8 text-sm text-ink/70 max-w-2xl leading-relaxed">
           Disclosure documents are kept up to date as per SEBI requirements. For

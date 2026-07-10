@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export function SubscribeForm() {
+export function SubscribeForm({
+  variant = "light",
+}: {
+  /** "onDark" adjusts label / button / message colors for a dark (teal) band. */
+  variant?: "light" | "onDark";
+}) {
+  const inputId = useId();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const onDark = variant === "onDark";
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -48,12 +55,17 @@ export function SubscribeForm() {
   return (
     <div className="w-full max-w-md">
       <form onSubmit={onSubmit} noValidate>
-        <label htmlFor="footer-email" className="block text-sm font-medium text-ink/80 mb-2">
+        <label
+          htmlFor={inputId}
+          className={`block text-sm font-medium mb-2 ${
+            onDark ? "text-cream/90" : "text-ink/80"
+          }`}
+        >
           Email address
         </label>
         <div className="flex w-full gap-2.5">
         <input
-          id="footer-email"
+          id={inputId}
           name="email"
           type="email"
           autoComplete="email"
@@ -71,7 +83,11 @@ export function SubscribeForm() {
         <button
           type="submit"
           disabled={isLoading || status === "success"}
-          className="inline-flex shrink-0 items-center gap-2 rounded-md bg-teal-700 px-5 py-3 text-sm font-semibold text-cream shadow-soft transition-colors hover:bg-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600/40 disabled:cursor-not-allowed disabled:opacity-70"
+          className={`inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold shadow-soft transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-70 ${
+            onDark
+              ? "bg-cream text-ink hover:bg-gold-300 focus-visible:ring-cream/50"
+              : "bg-teal-700 text-cream hover:bg-teal-800 focus-visible:ring-teal-600/40"
+          }`}
         >
           {isLoading ? (
             <>
@@ -96,9 +112,13 @@ export function SubscribeForm() {
         aria-live="polite"
         className={`mt-2.5 min-h-[1.25rem] text-sm ${
           status === "error"
-            ? "text-red-700"
+            ? onDark
+              ? "text-red-200"
+              : "text-red-700"
             : status === "success"
-            ? "text-teal-700"
+            ? onDark
+              ? "text-gold-200"
+              : "text-teal-700"
             : "text-transparent"
         }`}
       >
