@@ -42,15 +42,15 @@ export default function DisclosuresPage() {
             href="/investment-offerings/aif#disclosures"
             className="group block bg-ink text-cream rounded-md p-10 lg:p-12 hover:bg-teal-800 transition relative overflow-hidden"
           >
-            <p className="font-mono text-sm text-gold-600 tabular">/AIF</p>
+            <p className="font-mono text-sm text-gold-300 tabular">/AIF</p>
             <h2 className="font-display text-3xl lg:text-4xl mt-3 tracking-tighter2 leading-tight">
               AIF Regulatory Disclosures
             </h2>
-            <p className="mt-4 text-ink/70 text-base">
+            <p className="mt-4 text-cream/85 text-base">
               Private placement memorandum, investor charter, statement of
               complaints, grievance redressal, compliance and risk policies.
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 text-base font-medium text-teal-700 group-hover:translate-x-1 transition-transform">
+            <span className="mt-8 inline-flex items-center gap-2 text-base font-medium text-gold-300 group-hover:translate-x-1 transition-transform">
               View AIF disclosures →
             </span>
             <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold-400/15 blur-2xl pointer-events-none" />

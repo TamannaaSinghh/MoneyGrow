@@ -78,15 +78,15 @@ export function SubscribeForm({
           }}
           placeholder="you@example.com"
           aria-invalid={status === "error"}
-          className="flex-1 bg-paper border border-ink/60 rounded-md px-4 py-3 text-base text-ink placeholder:text-ink/55 shadow-sm transition-colors focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700/40 disabled:opacity-60"
+          className="flex-1 bg-paper border border-ink/60 rounded-md px-4 py-3 text-base text-ink placeholder:text-ink/60 shadow-sm transition-colors focus:outline-none focus:border-teal-700 focus:ring-2 focus:ring-teal-700 disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={isLoading || status === "success"}
           className={`inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold shadow-soft transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-70 ${
             onDark
-              ? "bg-cream text-ink hover:bg-gold-300 focus-visible:ring-cream/50"
-              : "bg-teal-700 text-cream hover:bg-teal-800 focus-visible:ring-teal-600/40"
+              ? "bg-cream text-ink hover:bg-gold-300 focus-visible:ring-cream"
+              : "bg-teal-700 text-cream hover:bg-teal-800 focus-visible:ring-teal-700"
           }`}
         >
           {isLoading ? (

@@ -24,7 +24,7 @@ export function CTAStrip({
               <h2 className="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tighter2">
                 {title}
               </h2>
-              {body && <p className="mt-6 text-cream/80 max-w-xl text-base lg:text-lg">{body}</p>}
+              {body && <p className="mt-6 text-cream/85 max-w-xl text-base lg:text-lg">{body}</p>}
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
               {primary && (

@@ -25,7 +25,9 @@ export function TopBar() {
           className="inline-flex items-center gap-2 hover:text-white/80 transition"
         >
           <WhatsAppIcon className="w-4 h-4 shrink-0" />
-          <span className="tabular">{site.contact.phone}</span>
+          <span className="tabular underline underline-offset-2 decoration-white/70">
+            {site.contact.phone}
+          </span>
         </a>
         <span className="hidden sm:inline-block w-px h-4 bg-white/30" />
         <a
@@ -34,7 +36,9 @@ export function TopBar() {
           className="inline-flex items-center gap-2 hover:text-white/80 transition"
         >
           <MailIcon className="w-4 h-4 shrink-0" />
-          <span className="break-all">{site.contact.email}</span>
+          <span className="break-all underline underline-offset-2 decoration-white/70">
+            {site.contact.email}
+          </span>
         </a>
       </div>
     </div>

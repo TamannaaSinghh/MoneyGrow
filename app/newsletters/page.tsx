@@ -140,7 +140,7 @@ export default async function NewslettersPage() {
                   <br />
                   <span className="italic font-light text-gold-300">Subscribe.</span>
                 </h2>
-                <p className="mt-6 text-cream/80 max-w-xl text-base lg:text-lg">
+                <p className="mt-6 text-cream/85 max-w-xl text-base lg:text-lg">
                   Reflections — straight to your inbox once a month. Unsubscribe anytime.
                 </p>
               </div>

@@ -51,7 +51,7 @@ export function DisclosuresTabs() {
             key={t}
             onClick={() => setTab(t)}
             className={`px-6 py-4 text-sm font-medium transition relative ${
-              tab === t ? "text-ink" : "text-ink/40 hover:text-ink/70"
+              tab === t ? "text-ink" : "text-ink/65 hover:text-ink/85"
             }`}
             aria-pressed={tab === t}
           >

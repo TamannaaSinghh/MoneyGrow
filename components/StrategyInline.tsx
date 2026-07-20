@@ -130,15 +130,15 @@ export function StrategyInline({ strategy: s }: { strategy: Strategy }) {
               <p className="smallcaps text-sm text-ink/70 mb-3">Not for you if</p>
               <ul className="space-y-3 text-base text-ink/75">
                 <li className="flex gap-3">
-                  <span className="text-ink/40">✕</span>
+                  <span className="text-ink/60">✕</span>
                   You need certain monthly cash flows
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-ink/40">✕</span>
+                  <span className="text-ink/60">✕</span>
                   You can&rsquo;t tolerate interim drawdowns
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-ink/40">✕</span>
+                  <span className="text-ink/60">✕</span>
                   Your horizon is under 2 years
                 </li>
               </ul>
