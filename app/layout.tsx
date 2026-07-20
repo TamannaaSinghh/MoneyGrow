@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/TopBar";
@@ -48,6 +49,17 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+/* EnableStack accessibility widget. The config must exist on `window` before
+   the widget script runs, so it ships as a beforeInteractive script; the
+   widget itself loads afterInteractive so it never blocks first paint.
+   Runtime config takes precedence over the colour baked into the bundle. */
+const ENABLESTACK_CONFIG = {
+  colors: { primary: "#166E41" }, // teal-700 — matches the site's CTAs
+  icon: "default",
+  widgetPosition: { side: "right" },
+  accessibilityStatementUrl: "",
+};
+
 export default async function RootLayout({
   children,
 }: {
@@ -68,6 +80,15 @@ export default async function RootLayout({
         >
           {children}
         </AppShell>
+
+        <Script
+          id="enablestack-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.ENABLESTACK_CONFIG=${JSON.stringify(ENABLESTACK_CONFIG)};`,
+          }}
+        />
+        <Script src="/enablestack-widget.js" strategy="afterInteractive" />
       </body>
     </html>
   );
