@@ -3,6 +3,7 @@ import { Section, SectionTitle, Eyebrow } from "@/components/Section";
 import { FourPGrid } from "@/components/FourPGrid";
 import { FeesTerms } from "@/components/FeesTerms";
 import { CTAStrip } from "@/components/CTAStrip";
+import { ComplianceContact } from "@/components/ComplianceContact";
 import { DownloadIcon } from "@/components/DownloadIcon";
 import { getStrategy } from "@/lib/strategies";
 import { site } from "@/lib/site";
@@ -268,23 +269,13 @@ export default async function AifPage() {
         </div>
         )}
 
-        <p className="mt-8 text-sm text-ink/70 max-w-2xl leading-relaxed">
-          Disclosure documents are kept up to date as per SEBI requirements. For
-          investor grievances, please email{" "}
-          <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
-            sales@moneygrowindia.com
-          </a>{" "}
-          or escalate through{" "}
-          <a
-            className="text-teal-700 link-underline"
-            href="https://scores.gov.in"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SCORES
-          </a>
-          .
-        </p>
+        <ComplianceContact
+          scope="AIF"
+          officer={{
+            name: "Pooja Gupta",
+            email: "compliance.aif@moneygrowindia.com",
+          }}
+        />
       </Section>
 
       <CTAStrip

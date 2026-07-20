@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { PageHeader } from "@/components/PageHeader";
-import { Section } from "@/components/Section";
+import { Section, Eyebrow } from "@/components/Section";
 import { CTAStrip } from "@/components/CTAStrip";
+import { ComplianceContact } from "@/components/ComplianceContact";
 import { DownloadIcon } from "@/components/DownloadIcon";
 import { StrategyInline } from "@/components/StrategyInline";
 import { strategies } from "@/lib/strategies";
@@ -123,23 +125,13 @@ export default async function PmsPage() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-ink/70 max-w-2xl leading-relaxed">
-          Disclosure documents are kept up to date as per SEBI requirements. For
-          investor grievances, please email{" "}
-          <a className="text-teal-700 link-underline" href="mailto:sales@moneygrowindia.com">
-            sales@moneygrowindia.com
-          </a>{" "}
-          or escalate through{" "}
-          <a
-            className="text-teal-700 link-underline"
-            href="https://scores.gov.in"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SCORES
-          </a>
-          .
-        </p>
+        <ComplianceContact
+          scope="PMS"
+          officer={{
+            name: "Prachi Kadam",
+            email: "compliance.pms@moneygrowindia.com",
+          }}
+        />
       </Section>
 
       {/* PMS Client Login banner */}
@@ -164,6 +156,29 @@ export default async function PmsPage() {
             Open Wealthspectrum
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
+        </div>
+      </Section>
+
+      {/* PMS UPI payment QR */}
+      <Section>
+        <div className="flex flex-col md:flex-row md:items-center gap-8 p-10 border border-ink/10 rounded-lg">
+          <Image
+            src="/pms-upi-qr.png"
+            alt="UPI QR code for PMS payments to moneygrow.pms@validkpay"
+            width={267}
+            height={300}
+            className="shrink-0 w-48 h-auto"
+          />
+          <div>
+            <Eyebrow>Payments</Eyebrow>
+            <h3 className="font-display text-3xl lg:text-4xl tracking-tightish">
+              Scan to pay via UPI
+            </h3>
+            <p className="mt-4 text-base max-w-xl">
+              Scan the QR code with any UPI app, or pay directly to the UPI ID{" "}
+              <strong className="font-medium">moneygrow.pms@validkpay</strong>.
+            </p>
+          </div>
         </div>
       </Section>
 
