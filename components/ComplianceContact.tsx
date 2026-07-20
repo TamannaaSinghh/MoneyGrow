@@ -15,18 +15,18 @@ export function ComplianceContact({
           Compliance Officer · {scope}
         </p>
 
-        <dl className="mt-5 grid sm:grid-cols-2 gap-6 max-w-2xl">
-          <div>
+        <dl className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-x-16 gap-y-6">
+          <div className="shrink-0">
             <dt className="text-sm text-ink/60">Name</dt>
-            <dd className="font-display text-2xl lg:text-3xl mt-1 tracking-tightish text-ink">
+            <dd className="font-display text-2xl lg:text-3xl mt-1 tracking-tightish text-ink whitespace-nowrap">
               {officer.name}
             </dd>
           </div>
-          <div>
+          <div className="min-w-0">
             <dt className="text-sm text-ink/60">Email</dt>
             <dd className="mt-1">
               <a
-                className="text-teal-700 link-underline text-lg font-medium break-all"
+                className="text-teal-700 link-underline font-medium whitespace-nowrap text-[clamp(0.8rem,3.1vw,1.125rem)]"
                 href={`mailto:${officer.email}`}
               >
                 {officer.email}
