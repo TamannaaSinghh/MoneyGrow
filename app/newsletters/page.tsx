@@ -2,13 +2,13 @@ import Image from "next/image";
 import { Section } from "@/components/Section";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { groupByYear, type Letter } from "@/lib/newsletters";
-import { getNewsletters } from "@/lib/wp";
+import { getNewsletters } from "@/sanity/lib/newsletters";
 
 export const metadata = { title: "Newsletters" };
 
-// Re-fetch the WordPress Media Library on this cadence so newly uploaded
-// newsletter PDFs appear automatically, without a redeploy.
-export const revalidate = 3600;
+// Re-fetch the archive from Sanity on this cadence so newsletter PDFs added
+// or updated in the Studio appear automatically, without a redeploy.
+export const revalidate = 60;
 
 function LetterRow({ letter }: { letter: Letter }) {
   return (
@@ -102,6 +102,18 @@ export default async function NewslettersPage() {
       </section>
 
       <Section>
+        {years.length === 0 ? (
+          <div className="border-t border-ink/10 py-20 lg:py-28 text-center">
+            <p className="smallcaps text-sm font-medium text-teal-700">Archive</p>
+            <p className="mt-4 font-display text-2xl lg:text-3xl tracking-tightish text-ink">
+              The archive is being updated.
+            </p>
+            <p className="mx-auto mt-3 max-w-md text-sm lg:text-base leading-relaxed text-ink/70">
+              Past letters are being moved across. Subscribe below and the next
+              Reflections will land in your inbox.
+            </p>
+          </div>
+        ) : (
         <div className="space-y-16">
           {years.map((y) => {
             const yearLetters = lettersByYear[y];
@@ -125,6 +137,7 @@ export default async function NewslettersPage() {
             );
           })}
         </div>
+        )}
       </Section>
 
       <section className="py-6 lg:py-8">

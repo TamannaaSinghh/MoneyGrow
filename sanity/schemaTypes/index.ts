@@ -4,6 +4,7 @@ import { teamMember } from "./teamMember";
 import { pmsDisclosure } from "./pmsDisclosure";
 import { aifDisclosure } from "./aifDisclosure";
 import { marketingPresentation } from "./marketingPresentation";
+import { newsletter } from "./newsletter";
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   atAGlance,
@@ -11,4 +12,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   pmsDisclosure,
   aifDisclosure,
   marketingPresentation,
+  newsletter,
 ];

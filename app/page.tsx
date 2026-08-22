@@ -5,11 +5,14 @@ import { TeamCard } from "@/components/TeamCard";
 import { LetterRow } from "@/components/LetterRow";
 import { getTeam } from "@/sanity/lib/team";
 import { getMarketingPresentation } from "@/sanity/lib/marketingPresentation";
-import { letters } from "@/lib/newsletters";
+import { getNewsletters } from "@/sanity/lib/newsletters";
+
+// Keep the homepage's "Latest letter" in step with the Sanity archive.
+export const revalidate = 60;
 
 export default async function Home() {
+  const [letters, team] = await Promise.all([getNewsletters(), getTeam()]);
   const latest = letters[0];
-  const team = await getTeam();
   const marketingPresentation = await getMarketingPresentation();
   return (
     <>
@@ -135,7 +138,8 @@ export default async function Home() {
         </a>
       </Section>
 
-      {/* Latest letter */}
+      {/* Latest letter — hidden until at least one letter exists in Sanity. */}
+      {latest && (
       <Section>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-10">
           <div>
@@ -156,6 +160,7 @@ export default async function Home() {
           <LetterRow letter={latest} />
         </div>
       </Section>
+      )}
     </>
   );
 }

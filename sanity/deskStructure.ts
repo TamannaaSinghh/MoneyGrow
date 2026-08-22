@@ -21,6 +21,13 @@ export const structure: StructureResolver = (S) =>
             .documentId("marketingPresentation")
         ),
       S.divider(),
+      S.documentTypeListItem("newsletter")
+        .title("Newsletters")
+        .child(
+          S.documentTypeList("newsletter")
+            .title("Newsletters")
+            .defaultOrdering([{ field: "date", direction: "desc" }])
+        ),
       S.documentTypeListItem("teamMember").title("Team members"),
       S.documentTypeListItem("pmsDisclosure").title("PMS Regulatory Disclosures"),
       S.documentTypeListItem("aifDisclosure").title("AIF Regulatory Disclosures"),

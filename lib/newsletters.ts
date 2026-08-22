@@ -17,7 +17,15 @@ export type Letter = {
 };
 
 /** Minimal shape needed to build a Letter — `href` is the link to the PDF. */
-export type LetterSource = { date: string; title: string; href: string };
+export type LetterSource = {
+  date: string;
+  title: string;
+  href: string;
+  /** Optional summary override; the standard monthly wording is used if unset. */
+  blurb?: string;
+  /** Optional cover image URL; the month/year tile is used if unset. */
+  image?: string;
+};
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -35,8 +43,8 @@ const BLURB_TEMPLATES = [
 
 /**
  * Turn raw {date, title, href} records into fully-formatted Letter[] sorted
- * newest-first. Shared by the static fallback below and the live WP fetch
- * (see lib/wp.ts), so the two paths always render identically.
+ * newest-first. Shared by the static fallback below and the live Sanity fetch
+ * (see sanity/lib/newsletters.ts), so the two paths always render identically.
  */
 export function buildLetters(raw: LetterSource[]): Letter[] {
   return [...raw]
@@ -54,9 +62,12 @@ export function buildLetters(raw: LetterSource[]): Letter[] {
         monthLong,
         monthShort: monthLong.slice(0, 3).toUpperCase(),
         dateLabel: `${String(d).padStart(2, "0")} ${monthLong.slice(0, 3)} ${y}`,
-        blurb: BLURB_TEMPLATES[serial % BLURB_TEMPLATES.length]
-          .replace("{M}", monthLong)
-          .replace("{Y}", String(y)),
+        blurb:
+          l.blurb ||
+          BLURB_TEMPLATES[serial % BLURB_TEMPLATES.length]
+            .replace("{M}", monthLong)
+            .replace("{Y}", String(y)),
+        image: l.image,
       };
     });
 }
@@ -74,49 +85,17 @@ export function groupByYear(letters: Letter[]) {
 }
 
 // ---------------------------------------------------------------------------
-// Static fallback — used only if the live WordPress fetch fails (offline build,
-// WP down, etc.). Mirrors the Media Library as of the last manual sync; the
-// real source of truth is the WP REST API in lib/wp.ts.
+// Fallback archive — rendered only when the live Sanity fetch returns nothing
+// (Sanity unconfigured, offline build, empty dataset).
+//
+// Deliberately empty. The archive used to live on WordPress, but
+// moneygrowindia.com now serves this site and every legacy
+// /wp-content/uploads/*.pdf URL returns 403, so listing those letters here
+// only produced dead links. Newsletters are managed in the Sanity Studio
+// ("Newsletters"); see sanity/lib/newsletters.ts. Add letters there and they
+// appear on the site automatically.
 // ---------------------------------------------------------------------------
-const FALLBACK_RAW: LetterSource[] = [
-  { date: "2026-06-03", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/06/2026-06-03-MoneyGrow-Reflections.pdf" },
-  { date: "2026-05-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/05/2026-05-07-MoneyGrow-Reflections.pdf" },
-  { date: "2026-04-02", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/04/2026-04-02-MoneyGrow-Reflections.pdf" },
-  { date: "2026-03-04", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/03/2026-03-04-MoneyGrow-Reflections.pdf" },
-  { date: "2026-02-06", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/02/2026-02-06-MoneyGrow-Reflections.pdf" },
-  { date: "2026-01-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2026/01/2026-01-07-MoneyGrow-Reflections.pdf" },
-  { date: "2025-12-03", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/12/2025-12-03-MoneyGrow-Reflections.pdf" },
-  { date: "2025-11-05", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/11/2025-11-05-MoneyGrow-Reflections.pdf" },
-  { date: "2025-10-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/10/2025-10-07-MoneyGrow-Reflections.pdf" },
-  { date: "2025-09-04", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/09/2025-09-04-MoneyGrow-Reflections.pdf" },
-  { date: "2025-08-02", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/08/2025-08-02-MoneyGrow-Reflections.pdf" },
-  { date: "2025-07-02", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/07/2025-07-02-MoneyGrow-Reflections.pdf" },
-  { date: "2025-06-04", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/06/2025-06-04-MoneyGrow-Reflections.pdf" },
-  { date: "2025-05-06", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/05/2025-05-06-MoneyGrow-Reflections.pdf" },
-  { date: "2025-04-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/04/2025-04-07-MoneyGrow-Reflections-1.pdf" },
-  { date: "2025-03-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/03/2025-03-07-MoneyGrow-Reflections.pdf" },
-  { date: "2025-01-01", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2025/01/2025-01-01-MoneyGrow-Reflections.pdf" },
-  { date: "2024-12-04", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-12-04-MoneyGrow-Reflections.pdf" },
-  { date: "2024-11-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-11-07-MoneyGrow-Reflections.pdf" },
-  { date: "2024-10-03", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-10-03-MoneyGrow-Reflections.pdf" },
-  { date: "2024-09-01", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-09-01-MoneyGrow-Reflections.pdf" },
-  { date: "2024-08-01", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-08-01-MoneyGrow-Reflections.pdf" },
-  { date: "2024-07-01", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-07-01-MoneyGrow-Reflections.pdf" },
-  { date: "2024-06-09", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-06-09-MoneyGrow-Reflections.pdf" },
-  { date: "2024-05-10", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-05-10-MoneyGrow-Reflections.pdf" },
-  { date: "2024-04-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-04-07-MoneyGrow-Reflections.pdf" },
-  { date: "2024-03-14", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-03-14-MoneyGrow-Reflections.pdf" },
-  { date: "2024-03-09", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-03-09-MoneyGrow-Reflections.pdf" },
-  { date: "2024-02-08", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-02-08-MoneyGrow-Reflections.pdf" },
-  { date: "2024-01-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2024-01-07-MoneyGrow-Reflections.pdf" },
-  { date: "2023-12-03", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-12-03-MoneyGrow-Reflections.pdf" },
-  { date: "2023-11-09", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-11-09-MoneyGrow-Reflections.pdf" },
-  { date: "2023-10-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-10-07-MoneyGrow-Reflections.pdf" },
-  { date: "2023-09-22", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-09-22-MoneyGrow-Reflections.pdf" },
-  { date: "2023-09-07", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-09-07-MoneyGrow-Reflections.pdf" },
-  { date: "2023-08-09", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-08-09-MoneyGrow-Reflections.pdf" },
-  { date: "2023-07-10", title: "MoneyGrow Reflections", href: "https://moneygrowindia.com/wp-content/uploads/2024/12/2023-07-10-MoneyGrow-Reflections.pdf" },
-];
+const FALLBACK_RAW: LetterSource[] = [];
 
 /** Static fallback letters (newest-first), built the same way as live data. */
 export const letters: Letter[] = buildLetters(FALLBACK_RAW);
